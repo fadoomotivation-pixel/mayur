@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  :root {
+    --background: #000000;
+    --foreground: #f5f5f7;
+    
+    --primary: #ffffff;
+    --primary-foreground: #000000;
+    
+    --muted: #1d1d1f;
+    --muted-foreground: #86868b;
+    
+    --accent: #b8860b;
+    --accent-foreground: #000000;
+    
+    --border: #424245;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-[var(--border)];
+  }
+  body {
+    @apply bg-[var(--background)] text-[var(--foreground)] font-sans antialiased;
+    letter-spacing: -0.01em;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply tracking-tight;
+  }
+}
+
+@layer utilities {
+  .glass-panel {
+    @apply bg-[#1d1d1f]/70 backdrop-blur-md border border-white/10;
+  }
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-white to-[#86868b];
+  }
+  .text-gradient-gold {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#d4a017] to-[#b8860b];
+  }
+}
