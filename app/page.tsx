@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, Variants } from "framer-motion";
+import { useState } from "react";
 import { 
   MapPin, 
   TrendingUp, 
@@ -10,10 +11,26 @@ import {
   Waves,
   Building2,
   ChevronRight,
-  ArrowRight
+  ArrowRight,
+  Landmark,
+  Cpu,
+  Plane,
+  Route,
+  Plus,
+  Minus
 } from "lucide-react";
+import { site, whyDholera, projects, faqs, stats } from "@/lib/data";
+
+const iconMap: Record<string, any> = {
+  Landmark,
+  Cpu,
+  Plane,
+  Route
+};
 
 export default function Home() {
+  const [openFaq, setOpenFaq] = useState<number | null>(0);
+
   const fadeUp: Variants = {
     hidden: { opacity: 0, y: 30 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
@@ -31,8 +48,7 @@ export default function Home() {
     <main className="min-h-screen bg-black overflow-hidden selection:bg-[#b8860b] selection:text-white">
       
       {/* 1. HERO SECTION */}
-      <section className="relative h-screen flex items-center justify-center pt-20">
-        {/* Background Image */}
+      <section className="relative min-h-screen flex items-center justify-center pt-20">
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black z-10" />
           <img 
@@ -43,19 +59,14 @@ export default function Home() {
         </div>
 
         <div className="relative z-20 max-w-7xl mx-auto px-6 text-center">
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={stagger}
-            className="flex flex-col items-center"
-          >
+          <motion.div initial="hidden" animate="visible" variants={stagger} className="flex flex-col items-center">
             <motion.div variants={fadeUp} className="mb-6 inline-flex items-center gap-2 glass-panel rounded-full px-4 py-1.5 border border-white/20">
               <span className="w-2 h-2 rounded-full bg-[#b8860b] animate-pulse" />
               <span className="text-xs font-semibold tracking-widest text-[#d4a017] uppercase">Special Pre-Launch Offer</span>
             </motion.div>
             
             <motion.h1 variants={fadeUp} className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter mb-6">
-              Mayur Aerocity <span className="text-gradient-gold">II</span>
+              Mayur <span className="text-gradient-gold">Aerocity II</span>
             </motion.h1>
             
             <motion.p variants={fadeUp} className="text-xl md:text-2xl text-[#86868b] max-w-2xl mb-10 font-light">
@@ -72,6 +83,18 @@ export default function Home() {
               </a>
             </motion.div>
           </motion.div>
+        </div>
+      </section>
+
+      {/* STATS STRIP */}
+      <section className="border-y border-white/5 bg-[#050507]">
+        <div className="max-w-7xl mx-auto px-6 py-12 grid grid-cols-2 md:grid-cols-4 gap-8">
+          {stats.map((stat, i) => (
+            <div key={i} className="text-center">
+              <div className="text-3xl md:text-4xl font-bold text-white mb-2">{stat.value}</div>
+              <div className="text-sm text-[#86868b]">{stat.label}</div>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -132,17 +155,90 @@ export default function Home() {
                     </li>
                   ))}
                 </ul>
-                <button className="w-full py-4 bg-[#d4a017] hover:bg-[#b8860b] text-black font-semibold rounded-2xl transition-colors">
+                <a href="#contact" className="block w-full py-4 text-center bg-[#d4a017] hover:bg-[#b8860b] text-black font-semibold rounded-2xl transition-colors">
                   Claim This Offer
-                </button>
+                </a>
               </div>
             </motion.div>
           </motion.div>
         </div>
       </section>
 
+      {/* WHY DHOLERA */}
+      <section id="dholera" className="py-32 bg-[#050507]">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-20">
+            <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">Why Invest in <span className="text-gradient">Dholera?</span></h2>
+            <p className="text-xl text-[#86868b] max-w-2xl mx-auto">India's first greenfield smart city is rapidly becoming the epicenter of global manufacturing and infrastructure.</p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 gap-6">
+            {whyDholera.map((item, i) => {
+              const IconComponent = iconMap[item.icon] || Landmark;
+              return (
+                <div key={i} className="glass-panel p-8 rounded-3xl hover:bg-white/5 transition-colors group">
+                  <div className="w-14 h-14 rounded-2xl bg-white/5 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                    <IconComponent className="w-7 h-7 text-[#d4a017]" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-white mb-4">{item.title}</h3>
+                  <p className="text-[#86868b] leading-relaxed">{item.text}</p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* PROJECT PORTFOLIO */}
+      <section id="projects" className="py-32 relative">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="mb-20 flex flex-col md:flex-row md:items-end justify-between gap-6">
+            <div>
+              <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">Our <span className="text-gradient">Portfolio.</span></h2>
+              <p className="text-xl text-[#86868b] max-w-2xl">A collection of premium residential developments strategically located across Dholera.</p>
+            </div>
+            <a href="#contact" className="text-[#d4a017] hover:text-white transition-colors flex items-center gap-2 font-medium">
+              View All Projects <ArrowRight className="w-4 h-4" />
+            </a>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            {projects.map((project, i) => (
+              <div key={i} className="glass-panel rounded-3xl p-8 relative overflow-hidden group">
+                <div className="absolute top-0 right-0 p-6 flex justify-end">
+                  <span className="px-3 py-1 rounded-full bg-white/10 text-xs font-semibold text-white backdrop-blur-md">
+                    {project.status}
+                  </span>
+                </div>
+                <h3 className="text-2xl font-bold text-white mb-2">{project.name}</h3>
+                <p className="text-[#d4a017] text-sm font-medium mb-6">{project.location}</p>
+                
+                <ul className="space-y-3 mb-8">
+                  {project.highlights.slice(0,3).map((highlight, j) => (
+                    <li key={j} className="flex items-start gap-3 text-sm text-[#86868b]">
+                      <ShieldCheck className="w-4 h-4 text-white/40 shrink-0 mt-0.5" />
+                      {highlight}
+                    </li>
+                  ))}
+                </ul>
+                
+                <div className="pt-6 border-t border-white/10 flex items-center justify-between">
+                  <div>
+                    <div className="text-xs text-gray-500 uppercase tracking-wider mb-1">Pricing</div>
+                    <div className="font-semibold text-white">{project.priceUnit}</div>
+                  </div>
+                  <a href="#contact" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-[#d4a017] hover:text-black transition-colors">
+                    <ChevronRight className="w-5 h-5" />
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* 3. AMENITIES GRID */}
-      <section id="details" className="py-32 bg-[#0a0a0c]">
+      <section id="amenities" className="py-32 bg-[#050507]">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-20">
             <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">Designed for <span className="text-gradient">Tomorrow.</span></h2>
@@ -191,8 +287,41 @@ export default function Home() {
         </div>
       </section>
 
+      {/* FAQS */}
+      <section id="faqs" className="py-32 relative">
+        <div className="max-w-3xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold tracking-tight mb-4">Frequently Asked Questions</h2>
+            <p className="text-[#86868b]">Everything you need to know about investing with us.</p>
+          </div>
+          
+          <div className="space-y-4">
+            {faqs.map((faq, i) => (
+              <div key={i} className="glass-panel rounded-2xl overflow-hidden transition-colors hover:bg-white/5">
+                <button 
+                  onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                  className="w-full px-6 py-6 flex items-center justify-between text-left"
+                >
+                  <span className="font-medium text-lg pr-8">{faq.q}</span>
+                  {openFaq === i ? <Minus className="w-5 h-5 text-[#d4a017] shrink-0" /> : <Plus className="w-5 h-5 text-[#86868b] shrink-0" />}
+                </button>
+                {openFaq === i && (
+                  <motion.div 
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: 'auto', opacity: 1 }}
+                    className="px-6 pb-6 text-[#86868b] leading-relaxed"
+                  >
+                    {faq.a}
+                  </motion.div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* 4. CONTACT / LEAD FORM */}
-      <section className="py-32 relative">
+      <section id="contact" className="py-32 bg-[#050507]">
         <div className="max-w-4xl mx-auto px-6">
           <div className="glass-panel rounded-[2.5rem] p-8 md:p-16 border border-white/10 text-center relative overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-br from-[#b8860b]/10 to-transparent" />
@@ -216,16 +345,13 @@ export default function Home() {
                   Request Callback
                 </button>
               </form>
-              <p className="text-xs text-[#86868b] mt-6">Or call directly: <a href="tel:9899974590" className="text-white hover:text-[#d4a017]">9899974590</a> | <a href="tel:7042367340" className="text-white hover:text-[#d4a017]">7042367340</a></p>
+              <p className="text-xs text-[#86868b] mt-6">
+                Or call directly: <a href={`tel:${site.phone}`} className="text-white hover:text-[#d4a017]">{site.phone}</a> | <a href={`tel:${site.phoneAlt}`} className="text-white hover:text-[#d4a017]">{site.phoneAlt}</a>
+              </p>
             </div>
           </div>
         </div>
       </section>
-
-      {/* FOOTER */}
-      <footer className="border-t border-white/10 py-8 text-center text-sm text-[#86868b]">
-        <p>&copy; {new Date().getFullYear()} Mayur Aerocity II. All rights reserved.</p>
-      </footer>
     </main>
   );
 }
