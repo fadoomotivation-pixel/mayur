@@ -8,7 +8,7 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata: Metadata = {
   title: "Mayur Dholera | Premium Plots near Dholera Smart City",
-  description: "Invest in Mayur Dholera, mega residential plots just 0 KM from Dholera SIR boundary. Premium gated community starting at ₹10,750 per Sq. Yard.",
+  description: "Invest in premium, clear-title residential and commercial plots in Dholera Smart City, India's fastest growing greenfield smart city. Near the upcoming international airport.",
 };
 
 export default function RootLayout({
@@ -18,7 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={`${inter.variable} font-sans antialiased bg-black text-white`}>
+      <body className={`${inter.variable} font-sans antialiased bg-[#f9fafb] text-[#1d1d1f]`}>
         <Header />
         {children}
         <Footer />
