@@ -4,9 +4,10 @@ import { MapPin, Phone, Building, Home, Maximize, Tag, CheckCircle2, ChevronRigh
 import Link from "next/link";
 import Image from "next/image";
 
-export default function DynamicPage({ params }: { params: { slug: string[] } }) {
-  const path = params.slug.join('/');
-  const lastSegment = params.slug[params.slug.length - 1];
+export default async function DynamicPage({ params }: { params: Promise<{ slug: string[] }> }) {
+  const resolvedParams = await params;
+  const path = resolvedParams.slug.join('/');
+  const lastSegment = resolvedParams.slug[resolvedParams.slug.length - 1];
   
   // Check if it's a specific project
   const project = projects.find(p => p.slug === lastSegment);
