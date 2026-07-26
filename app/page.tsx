@@ -52,9 +52,9 @@ export default function Home() {
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-white/70 z-10" />
           <img 
-            src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop" 
-            alt="Aerial view" 
-            className="w-full h-full object-cover opacity-60 grayscale"
+            src="https://mirrikh.com/wp-content/uploads/2024/12/mirrikh-group-hero.jpg" 
+            alt="Dholera Smart City Real Estate" 
+            className="w-full h-full object-cover opacity-50"
           />
         </div>
 
@@ -247,7 +247,7 @@ export default function Home() {
           
           <div className="grid md:grid-cols-3 gap-6">
             <div className="md:col-span-2 bg-[#f9fafb] border border-gray-200 rounded-3xl p-8 flex flex-col justify-end min-h-[400px] relative overflow-hidden group">
-              <img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?q=80&w=2070&auto=format&fit=crop" alt="Clubhouse" className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700" />
+              <img src="https://mirrikh.com/wp-content/uploads/2026/04/Mayur-Greenz-Courtyard-Web-Banner.jpg-1.jpeg" alt="Clubhouse" className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700" />
               <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40 to-transparent" />
               <div className="relative z-10 text-white">
                 <Building2 className="w-10 h-10 mb-4" />
@@ -257,7 +257,7 @@ export default function Home() {
             </div>
             
             <div className="bg-[#f9fafb] border border-gray-200 rounded-3xl p-8 flex flex-col justify-end min-h-[400px] relative overflow-hidden group">
-              <img src="https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?q=80&w=2070&auto=format&fit=crop" alt="Pool" className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700" />
+              <img src="https://mirrikh.com/wp-content/uploads/2026/05/Mayur-Forest-Villa-Web-Banner-1.png" alt="Resort Setting" className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700" />
               <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40 to-transparent" />
               <div className="relative z-10 text-white">
                 <Waves className="w-10 h-10 mb-4" />
