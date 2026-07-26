@@ -4,6 +4,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { site } from "@/lib/data";
 import { Phone, Menu, X } from "lucide-react";
 import { useState } from "react";
+import Link from "next/link";
 
 export default function Header() {
   const { scrollY } = useScroll();
@@ -14,10 +15,10 @@ export default function Header() {
   const blur = useTransform(scrollY, [0, 50], [0, 12]);
   
   const navLinks = [
-    { name: "Projects", href: "#projects" },
-    { name: "Why Dholera", href: "#dholera" },
-    { name: "Amenities", href: "#amenities" },
-    { name: "FAQs", href: "#faqs" },
+    { name: "Projects", href: "/#projects" },
+    { name: "Why Dholera", href: "/#dholera" },
+    { name: "Amenities", href: "/#amenities" },
+    { name: "FAQs", href: "/#faqs" },
   ];
 
   return (
@@ -30,22 +31,22 @@ export default function Header() {
         className="fixed top-0 left-0 right-0 z-50 transition-colors duration-300 border-b border-white/5"
       >
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-          <a href="#" className="flex items-center gap-2 relative z-50">
+          <Link href="/" className="flex items-center gap-2 relative z-50">
             <span className="text-2xl font-bold tracking-tighter">
-              Mayur <span className="text-gradient-gold">Aerocity</span>
+              Mayur <span className="text-gradient-gold">Dholera</span>
             </span>
-          </a>
+          </Link>
 
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
-              <a 
+              <Link 
                 key={link.name} 
                 href={link.href}
                 className="text-sm font-medium text-gray-300 hover:text-white transition-colors"
               >
                 {link.name}
-              </a>
+              </Link>
             ))}
           </nav>
 
@@ -57,12 +58,12 @@ export default function Header() {
               <Phone className="w-4 h-4" />
               {site.phoneDisplay}
             </a>
-            <a 
-              href="#contact"
+            <Link 
+              href="/contact-us"
               className="px-5 py-2.5 rounded-full bg-white text-black text-sm font-semibold hover:scale-105 active:scale-95 transition-transform"
             >
               Enquire Now
-            </a>
+            </Link>
           </div>
 
           {/* Mobile Toggle */}
@@ -79,22 +80,22 @@ export default function Header() {
       {isOpen && (
         <div className="fixed inset-0 z-40 bg-black/95 backdrop-blur-xl flex flex-col justify-center items-center gap-8">
           {navLinks.map((link) => (
-            <a 
+            <Link 
               key={link.name} 
               href={link.href}
               onClick={() => setIsOpen(false)}
               className="text-2xl font-semibold text-gray-300 hover:text-white transition-colors"
             >
               {link.name}
-            </a>
+            </Link>
           ))}
-          <a 
-            href="#contact"
+          <Link 
+            href="/contact-us"
             onClick={() => setIsOpen(false)}
             className="px-8 py-4 mt-4 rounded-full bg-[#d4a017] text-black text-lg font-semibold"
           >
             Enquire Now
-          </a>
+          </Link>
         </div>
       )}
     </>

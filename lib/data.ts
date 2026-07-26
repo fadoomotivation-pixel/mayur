@@ -1,5 +1,5 @@
 export const site = {
-  name: 'Mayur Aerocity',
+  name: 'Mayur Dholera',
   tagline: 'Premium Plots near Dholera Smart City',
   phone: '9899974590',
   phoneAlt: '7042367340',
