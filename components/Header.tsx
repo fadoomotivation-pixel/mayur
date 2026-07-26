@@ -85,25 +85,20 @@ export default function Header() {
             <Link href="/" className="hover:text-[#FACC15] py-4 text-sm font-medium">Home</Link>
             <Link href="/investment" className="hover:text-[#FACC15] py-4 text-sm font-medium">Investment</Link>
             
-            <div className="relative group flex items-center gap-1 cursor-pointer hover:text-[#FACC15] py-4 text-sm font-medium">
+            <Link href="/projects" className="relative group flex items-center gap-1 hover:text-[#FACC15] py-4 text-sm font-medium">
               Projects <ChevronDown className="w-4 h-4" />
-            </div>
+            </Link>
             
-            <div className="relative group flex items-center gap-1 cursor-pointer hover:text-[#FACC15] py-4 text-sm font-medium">
+            <Link href="/developers" className="relative group flex items-center gap-1 hover:text-[#FACC15] py-4 text-sm font-medium">
               Developers <ChevronDown className="w-4 h-4" />
-            </div>
+            </Link>
             
-            <div className="relative group flex items-center gap-1 cursor-pointer hover:text-[#FACC15] py-4 text-sm font-medium">
-              Rent <ChevronDown className="w-4 h-4" />
-            </div>
-            
-            <Link href="/blog" className="hover:text-[#FACC15] py-4 text-sm font-medium">Blog</Link>
-            <Link href="/contact" className="hover:text-[#FACC15] py-4 text-sm font-medium">Contact</Link>
-            <Link href="/careers" className="hover:text-[#FACC15] py-4 text-sm font-medium">Careers</Link>
+            <Link href="/contact-us" className="hover:text-[#FACC15] py-4 text-sm font-medium">Contact</Link>
+            <Link href="/career" className="hover:text-[#FACC15] py-4 text-sm font-medium">Careers</Link>
           </nav>
 
           <div className="hidden md:block">
-            <Link href="/quote" className="bg-[#FACC15] text-black font-semibold px-8 py-5 flex items-center h-full hover:bg-yellow-500 transition-colors whitespace-nowrap">
+            <Link href="/contact-us" className="bg-[#FACC15] text-black font-semibold px-8 py-5 flex items-center h-full hover:bg-yellow-500 transition-colors whitespace-nowrap">
               Get A Quote
             </Link>
           </div>

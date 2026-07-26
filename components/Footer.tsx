@@ -67,14 +67,30 @@ export default function Footer() {
           <div>
             <h3 className="text-2xl mb-6 font-medium">Quick Links</h3>
             <ul className="space-y-4">
-              {['About Us', 'Investment', 'Villages', 'Contact'].map((item) => (
-                <li key={item}>
-                  <Link href="#" className="flex items-center gap-3 text-gray-300 hover:text-[#FACC15] transition-colors">
-                    <ChevronRight className="w-4 h-4 text-[#FACC15]" />
-                    {item}
-                  </Link>
-                </li>
-              ))}
+              <li>
+                <Link href="/about-us" className="flex items-center gap-3 text-gray-300 hover:text-[#FACC15] transition-colors">
+                  <ChevronRight className="w-4 h-4 text-[#FACC15]" />
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link href="/investment" className="flex items-center gap-3 text-gray-300 hover:text-[#FACC15] transition-colors">
+                  <ChevronRight className="w-4 h-4 text-[#FACC15]" />
+                  Investment
+                </Link>
+              </li>
+              <li>
+                <Link href="/villages" className="flex items-center gap-3 text-gray-300 hover:text-[#FACC15] transition-colors">
+                  <ChevronRight className="w-4 h-4 text-[#FACC15]" />
+                  Villages
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact-us" className="flex items-center gap-3 text-gray-300 hover:text-[#FACC15] transition-colors">
+                  <ChevronRight className="w-4 h-4 text-[#FACC15]" />
+                  Contact
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -82,14 +98,30 @@ export default function Footer() {
           <div>
             <h3 className="text-2xl mb-6 font-medium">Useful Links</h3>
             <ul className="space-y-4">
-              {['Privacy Policy', 'Terms and Conditions', 'Disclaimer', 'Support'].map((item) => (
-                <li key={item}>
-                  <Link href="#" className="flex items-center gap-3 text-gray-300 hover:text-[#FACC15] transition-colors">
-                    <ChevronRight className="w-4 h-4 text-[#FACC15]" />
-                    {item}
-                  </Link>
-                </li>
-              ))}
+              <li>
+                <Link href="/privacy-policy" className="flex items-center gap-3 text-gray-300 hover:text-[#FACC15] transition-colors">
+                  <ChevronRight className="w-4 h-4 text-[#FACC15]" />
+                  Privacy Policy
+                </Link>
+              </li>
+              <li>
+                <Link href="/terms-and-conditions" className="flex items-center gap-3 text-gray-300 hover:text-[#FACC15] transition-colors">
+                  <ChevronRight className="w-4 h-4 text-[#FACC15]" />
+                  Terms and Conditions
+                </Link>
+              </li>
+              <li>
+                <Link href="/disclaimer" className="flex items-center gap-3 text-gray-300 hover:text-[#FACC15] transition-colors">
+                  <ChevronRight className="w-4 h-4 text-[#FACC15]" />
+                  Disclaimer
+                </Link>
+              </li>
+              <li>
+                <Link href="/support" className="flex items-center gap-3 text-gray-300 hover:text-[#FACC15] transition-colors">
+                  <ChevronRight className="w-4 h-4 text-[#FACC15]" />
+                  Support
+                </Link>
+              </li>
             </ul>
           </div>
 
