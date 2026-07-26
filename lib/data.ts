@@ -61,6 +61,7 @@ export const projects = [
     priceUnit: 'New Launch',
     size: '90 plots · 132–655 sq yd',
     status: 'New Launch',
+    image: 'https://mirrikh.com/wp-content/uploads/2026/07/Mayur-NOVA-cover-banner-2.jpg',
     highlights: [
       'NA, NOC, Title Clear & Unit Plan Pass',
       'Gated Community with Club House',
@@ -80,6 +81,7 @@ export const projects = [
     priceUnit: 'Pre-Launch Pricing',
     size: 'Multiple plot sizes',
     status: 'Pre-Launch',
+    image: 'https://mirrikh.com/wp-content/uploads/2026/07/Mayur-Aerocity-ll-cover-bg3.jpg',
     highlights: [
       'Closest project to Dholera Airport',
       'High appreciation potential',
@@ -99,6 +101,7 @@ export const projects = [
     priceUnit: 'Ongoing',
     size: '20 bighas enclave',
     status: 'Ongoing',
+    image: 'https://mirrikh.com/wp-content/uploads/2026/06/banner-Mayur-Park-3-1.jpg',
     highlights: [
       'Well-planned internal roads & lighting',
       'Green open areas',
@@ -118,6 +121,7 @@ export const projects = [
     priceUnit: 'Ongoing',
     size: 'Multiple plot sizes',
     status: 'Ongoing',
+    image: 'https://mirrikh.com/wp-content/uploads/2026/05/Mayur-Forest-Villa-Web-Banner-1.png',
     highlights: [
       'Forest-themed residential community',
       'Lush greenery & landscaped spaces',
@@ -137,6 +141,7 @@ export const projects = [
     priceUnit: 'Pre-Launch',
     size: 'Large-format plots',
     status: 'Ongoing',
+    image: 'https://mirrikh.com/wp-content/uploads/2026/04/Mayur-Greenz-Courtyard-Web-Banner.jpg',
     highlights: [
       'Premium commercial and retail spaces',
       'High footfall connectivity',
@@ -156,6 +161,7 @@ export const projects = [
     priceUnit: 'Ready to Move',
     size: 'Multiple configurations',
     status: 'Ready',
+    image: 'https://mirrikh.com/wp-content/uploads/2026/02/Mayur-Ananta-2-hero-2.jpg',
     highlights: [
       'Fully RERA Approved',
       'Prime main road facing units',

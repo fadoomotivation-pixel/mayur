@@ -136,16 +136,29 @@ export default async function DynamicPage({ params }: { params: Promise<{ slug: 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {categoryProjects.map(proj => (
                 <Link key={proj.slug} href={`/project/${proj.slug}`} className="group block h-full">
-                  <div className="bg-white p-6 border border-gray-200 h-full hover:shadow-lg transition-all duration-300 flex flex-col">
-                    <h3 className="text-xl font-bold mb-2 text-gray-900 group-hover:text-[#FACC15] transition-colors">{proj.name}</h3>
-                    <p className="text-gray-500 text-sm mb-6 flex items-center gap-2">
-                      <MapPin className="w-4 h-4 text-[#FACC15]" /> {proj.location}
-                    </p>
-                    <div className="font-bold text-gray-900 mt-auto border-t border-gray-100 pt-4 flex justify-between items-center">
-                      <span>{proj.priceUnit}</span>
-                      <span className="text-[#FACC15] flex items-center gap-1 group-hover:translate-x-1 transition-transform">
-                        Details <ChevronRight className="w-4 h-4" />
-                      </span>
+                  <div className="bg-white border border-gray-200 h-full hover:shadow-lg transition-all duration-300 flex flex-col overflow-hidden">
+                    {proj.image && (
+                      <div className="relative w-full h-48 bg-gray-100 overflow-hidden">
+                        <Image 
+                          src={proj.image}
+                          alt={proj.name}
+                          fill
+                          className="object-cover group-hover:scale-105 transition-transform duration-500"
+                          unoptimized
+                        />
+                      </div>
+                    )}
+                    <div className="p-6 flex flex-col flex-1">
+                      <h3 className="text-xl font-bold mb-2 text-gray-900 group-hover:text-[#FACC15] transition-colors">{proj.name}</h3>
+                      <p className="text-gray-500 text-sm mb-6 flex items-start gap-2">
+                        <MapPin className="w-4 h-4 text-[#FACC15] shrink-0 mt-0.5" /> <span className="line-clamp-2">{proj.location}</span>
+                      </p>
+                      <div className="font-bold text-gray-900 mt-auto border-t border-gray-100 pt-4 flex justify-between items-center">
+                        <span>{proj.priceUnit}</span>
+                        <span className="text-[#FACC15] flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                          Details <ChevronRight className="w-4 h-4" />
+                        </span>
+                      </div>
                     </div>
                   </div>
                 </Link>
