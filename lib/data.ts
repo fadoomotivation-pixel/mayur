@@ -62,6 +62,7 @@ export const projects = [
     size: '90 plots · 132–655 sq yd',
     status: 'New Launch',
     image: 'https://mirrikh.com/wp-content/uploads/2026/07/Mayur-NOVA-cover-banner-2.jpg',
+    logo: 'https://mirrikh.com/wp-content/uploads/2026/07/Mayur-NOVA-logo.png', // Fallback if missing
     highlights: [
       'NA, NOC, Title Clear & Unit Plan Pass',
       'Gated Community with Club House',
@@ -82,6 +83,7 @@ export const projects = [
     size: 'Multiple plot sizes',
     status: 'Pre-Launch',
     image: 'https://mirrikh.com/wp-content/uploads/2026/07/Mayur-Aerocity-ll-cover-bg3.jpg',
+    logo: 'https://mirrikh.com/wp-content/uploads/2026/07/Mayur-Aerocity-ll-logo.png', // Fallback
     highlights: [
       'Closest project to Dholera Airport',
       'High appreciation potential',
@@ -102,6 +104,7 @@ export const projects = [
     size: 'Multiple plot sizes',
     status: 'Ongoing',
     image: 'https://mirrikh.com/wp-content/uploads/2026/06/Mayur-Park-3-by-Mirrikh-Group-1pdf.jpg',
+    logo: 'https://mirrikh.com/wp-content/uploads/2026/06/Mayur-Park-3-by-Mirrikh-Group-logo2.jpg',
     highlights: [
       'Near Dholera SIR Boundary',
       'Well-planned internal roads',
@@ -122,6 +125,7 @@ export const projects = [
     size: 'Multiple plot sizes',
     status: 'Ongoing',
     image: 'https://mirrikh.com/wp-content/uploads/2026/05/Mayur-Forest-Villa-Dholera-1.jpg',
+    logo: 'https://mirrikh.com/wp-content/uploads/2026/05/Mayur-Forest-Villa-Dholera-logo1.jpg',
     highlights: [
       'Forest-themed residential community',
       'Lush greenery & landscaped spaces',
@@ -142,6 +146,7 @@ export const projects = [
     size: 'Large-format plots',
     status: 'Ongoing',
     image: 'https://mirrikh.com/wp-content/uploads/2026/04/Mayur-Greenz-Courtyard-Single-Images_Optimizer-1.jpg',
+    logo: 'https://mirrikh.com/wp-content/uploads/2026/04/Mayur-Greenz-Courtyard-logo.svg',
     highlights: [
       'Roman architecture inspired',
       'Premium lifestyle amenities',
@@ -162,6 +167,7 @@ export const projects = [
     size: 'Multiple configurations',
     status: 'Ongoing',
     image: 'https://mirrikh.com/wp-content/uploads/2026/07/Mayur-Ananta-II-by-Mirrikh-Infratech-1.jpg',
+    logo: 'https://mirrikh.com/wp-content/uploads/2026/02/Mayur-Ananta-logo2.png',
     highlights: [
       'Largest premium residential land project',
       'High appreciation potential',
@@ -182,6 +188,7 @@ export const projects = [
     size: 'Multiple configurations',
     status: 'Ongoing',
     image: 'https://mirrikh.com/wp-content/uploads/2026/06/MIL-by-Mirrikh-Group-1.jpg',
+    logo: 'https://mirrikh.com/wp-content/uploads/2026/01/Mayur-Industrial-Landmark-logo.png',
     highlights: [
       'Strategic industrial opportunity',
       'Near modern manufacturing hubs',

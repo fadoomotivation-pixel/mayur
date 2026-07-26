@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, Variants } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { 
   MapPin, 
   TrendingUp, 
@@ -30,6 +30,21 @@ const iconMap: Record<string, any> = {
 
 export default function Home() {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const heroImages = [
+    "https://mirrikh.com/wp-content/uploads/2024/12/mirrikh-group-hero.jpg",
+    "https://mirrikh.com/wp-content/uploads/2026/06/Web-Banner1.jpg.jpeg",
+    "https://mirrikh.com/wp-content/uploads/2026/04/Mayur-Greenz-Courtyard-Web-Banner.jpg-1.jpeg",
+    "https://mirrikh.com/wp-content/uploads/2026/06/banner-Mayur-Park-3-1.jpg"
+  ];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % heroImages.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
 
   const fadeUp: Variants = {
     hidden: { opacity: 0, y: 30 },
@@ -51,11 +66,14 @@ export default function Home() {
       <section className="relative min-h-screen flex items-center justify-center pt-20">
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-white/70 z-10" />
-          <img 
-            src="https://mirrikh.com/wp-content/uploads/2024/12/mirrikh-group-hero.jpg" 
-            alt="Dholera Smart City Real Estate" 
-            className="w-full h-full object-cover opacity-50"
-          />
+          {heroImages.map((src, idx) => (
+            <img 
+              key={idx}
+              src={src} 
+              alt="Dholera Smart City Real Estate" 
+              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${idx === currentSlide ? 'opacity-50' : 'opacity-0'}`}
+            />
+          ))}
         </div>
 
         <div className="relative z-20 max-w-7xl mx-auto px-6 text-center">
@@ -210,7 +228,13 @@ export default function Home() {
                     {project.status}
                   </span>
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">{project.name}</h3>
+                <div className="h-16 flex items-center mb-4">
+                  {project.logo ? (
+                    <img src={project.logo} alt={project.name} className="max-h-12 w-auto object-contain" />
+                  ) : (
+                    <h3 className="text-2xl font-bold text-gray-900">{project.name}</h3>
+                  )}
+                </div>
                 <p className="text-blue-600 text-sm font-medium mb-6">{project.location}</p>
                 
                 <ul className="space-y-3 mb-8">
