@@ -9,7 +9,7 @@ export default function CareerPage() {
       id: "sales-executive",
       title: "Sales Executive",
       department: "Sales & Marketing",
-      location: "Ahmedabad / Dholera",
+      location: "Noida",
       type: "Full-Time",
       desc: "We are looking for an ambitious and energetic Sales Executive to help us expand our clientele in the real estate sector. You will be the front of the company and will have the dedication to create and apply an effective sales strategy.",
       reqs: [
@@ -24,7 +24,7 @@ export default function CareerPage() {
       id: "telecaller",
       title: "Telecaller",
       department: "Customer Service",
-      location: "Ahmedabad",
+      location: "Noida",
       type: "Full-Time",
       desc: "We are seeking a dedicated Telecaller to join our team. Your primary responsibility will be to connect with potential customers over the phone, explain our real estate projects, and arrange site visits for the sales team.",
       reqs: [

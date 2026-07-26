@@ -56,7 +56,7 @@ export default function Header() {
               </div>
               <div>
                 <div className="text-gray-900 font-medium">Have Any Question</div>
-                <div className="text-[#FACC15] font-semibold">(+91) 888 278 4781</div>
+                <div className="text-[#FACC15] font-semibold text-sm sm:text-base">(+91) 98999 74590 / 70423 67340</div>
               </div>
             </div>
             
@@ -87,10 +87,6 @@ export default function Header() {
             
             <Link href="/projects" className="relative group flex items-center gap-1 hover:text-[#FACC15] py-4 text-sm font-medium">
               Projects <ChevronDown className="w-4 h-4" />
-            </Link>
-            
-            <Link href="/developers" className="relative group flex items-center gap-1 hover:text-[#FACC15] py-4 text-sm font-medium">
-              Developers <ChevronDown className="w-4 h-4" />
             </Link>
             
             <Link href="/contact-us" className="hover:text-[#FACC15] py-4 text-sm font-medium">Contact</Link>

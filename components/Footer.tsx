@@ -32,7 +32,7 @@ export default function Footer() {
             <Phone className="w-8 h-8 text-[#FACC15] fill-current" />
             <div>
               <div className="text-[#FACC15] font-semibold">Phone</div>
-              <div className="text-[#FACC15]">(+91) 888 278 4781</div>
+              <div className="text-[#FACC15]">(+91) 98999 74590 / 70423 67340</div>
             </div>
           </div>
 
