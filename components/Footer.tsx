@@ -1,84 +1,128 @@
 import { site } from "@/lib/data";
-import { Mail, MapPin, Phone } from "lucide-react";
+import { Mail, Phone, ChevronRight, Facebook, Twitter, Instagram, Pinterest } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#050507] border-t border-white/5 pt-20 pb-10">
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
-        
-        {/* Col 1: Brand */}
-        <div className="lg:col-span-1">
-          <Link href="/" className="text-2xl font-bold tracking-tighter mb-6 block">
-            Mayur <span className="text-gradient-gold">Dholera</span>
-          </Link>
-          <p className="text-[#86868b] max-w-sm mb-8 leading-relaxed text-sm">
-            {site.tagline}. Strategic investments in India's first greenfield smart city. High ROI, completely legal, and transparent documentation under DMIC.
-          </p>
-          <div className="flex gap-4">
-            <div className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:border-white transition-colors cursor-pointer">
-              X
+    <footer className="bg-black text-white">
+      {/* Top Section */}
+      <div className="max-w-7xl mx-auto px-6 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center border-b border-gray-800 pb-12">
+          {/* Logo */}
+          <div className="flex items-center gap-2">
+            {/* Imitating the logo from the screenshot */}
+            <div className="w-12 h-12 bg-[#FACC15] text-black font-bold rounded-full flex items-center justify-center text-3xl font-serif">
+              d
             </div>
-            <div className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:border-white transition-colors cursor-pointer">
-              in
+            <div>
+              <div className="text-3xl font-bold tracking-widest leading-none">DHOLERA</div>
+              <div className="text-xl tracking-widest font-light">CITY SMART</div>
+            </div>
+          </div>
+
+          {/* Phone */}
+          <div className="flex items-center gap-4 md:justify-center">
+            <Phone className="w-8 h-8 text-[#FACC15] fill-current" />
+            <div>
+              <div className="text-[#FACC15] font-semibold">Phone</div>
+              <div className="text-[#FACC15]">(+91) 888 278 4781</div>
+            </div>
+          </div>
+
+          {/* Mail */}
+          <div className="flex items-center gap-4 md:justify-end">
+            <Mail className="w-8 h-8 text-[#FACC15] fill-current" />
+            <div>
+              <div className="text-[#FACC15] font-semibold">Mail</div>
+              <div className="text-[#FACC15]">info@dholeracitysmart.com</div>
             </div>
           </div>
         </div>
 
-        {/* Col 2: Quick Links */}
-        <div>
-          <h4 className="text-white font-semibold mb-6 uppercase tracking-wider text-sm">Quick Links</h4>
-          <ul className="space-y-4 text-[#86868b] text-sm">
-            <li><Link href="/" className="hover:text-white transition-colors">Home</Link></li>
-            <li><Link href="/contact-us" className="hover:text-white transition-colors">Contact Us</Link></li>
-            <li><Link href="/career" className="hover:text-white transition-colors">Career</Link></li>
-            <li><Link href="/#dholera" className="hover:text-white transition-colors">Why Dholera?</Link></li>
-            <li><Link href="/#faqs" className="hover:text-white transition-colors">FAQs</Link></li>
-          </ul>
-        </div>
+        {/* Middle Section (4 Columns) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 py-12">
+          {/* Col 1: About Us */}
+          <div>
+            <h3 className="text-2xl mb-6 font-medium">About Us</h3>
+            <p className="text-gray-300 leading-relaxed mb-6 text-sm pr-4">
+              Dholera, a visionary urban marvel that's redefining the future of sustainable living and business opportunities in India.
+            </p>
+            <div className="flex gap-3">
+              {[Facebook, Twitter, Instagram, Pinterest].map((Icon, i) => (
+                <a key={i} href="#" className="w-8 h-8 rounded-full bg-[#FACC15] flex items-center justify-center text-black hover:bg-yellow-400 transition-colors">
+                  <Icon className="w-4 h-4 fill-current" />
+                </a>
+              ))}
+            </div>
+          </div>
 
-        {/* Col 3: Properties */}
-        <div>
-          <h4 className="text-white font-semibold mb-6 uppercase tracking-wider text-sm">Properties</h4>
-          <ul className="space-y-4 text-[#86868b] text-sm">
-            <li><Link href="/residential-plots" className="hover:text-white transition-colors">Residential Plots</Link></li>
-            <li><Link href="/industrial-land" className="hover:text-white transition-colors">Industrial Land</Link></li>
-            <li><Link href="/project/dholera-iconic-rera-approved-commercial-shops" className="hover:text-white transition-colors">Commercial Shops</Link></li>
-            <li><Link href="/rooms-for-rent-in-dholera" className="hover:text-white transition-colors">Rooms for Rent</Link></li>
-            <li><Link href="/corporate-staff-accommodation-in-dholera" className="hover:text-white transition-colors">Staff Accommodation</Link></li>
-          </ul>
-        </div>
+          {/* Col 2: Quick Links */}
+          <div>
+            <h3 className="text-2xl mb-6 font-medium">Quick Links</h3>
+            <ul className="space-y-4">
+              {['About Us', 'Investment', 'Villages', 'Contact'].map((item) => (
+                <li key={item}>
+                  <Link href="#" className="flex items-center gap-3 text-gray-300 hover:text-[#FACC15] transition-colors">
+                    <ChevronRight className="w-4 h-4 text-[#FACC15]" />
+                    {item}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-        {/* Col 4: Contact */}
-        <div>
-          <h4 className="text-white font-semibold mb-6 uppercase tracking-wider text-sm">Contact Us</h4>
-          <ul className="space-y-4 text-[#86868b] text-sm">
-            <li className="flex gap-3">
-              <Phone className="w-5 h-5 shrink-0 text-[#d4a017]" />
-              <a href={`tel:${site.phone}`} className="hover:text-white transition-colors">{site.phoneDisplay}</a>
-            </li>
-            <li className="flex gap-3 pl-8">
-              <a href={`tel:${site.phoneAlt}`} className="hover:text-white transition-colors">+91 {site.phoneAlt}</a>
-            </li>
-            <li className="flex gap-3">
-              <Mail className="w-5 h-5 shrink-0 text-[#d4a017]" />
-              <a href={`mailto:${site.email}`} className="hover:text-white transition-colors">{site.email}</a>
-            </li>
-            <li className="flex gap-3">
-              <MapPin className="w-5 h-5 shrink-0 text-[#d4a017]" />
-              <span>{site.address}</span>
-            </li>
-          </ul>
-        </div>
+          {/* Col 3: Useful Links */}
+          <div>
+            <h3 className="text-2xl mb-6 font-medium">Useful Links</h3>
+            <ul className="space-y-4">
+              {['Privacy Policy', 'Terms and Conditions', 'Disclaimer', 'Support'].map((item) => (
+                <li key={item}>
+                  <Link href="#" className="flex items-center gap-3 text-gray-300 hover:text-[#FACC15] transition-colors">
+                    <ChevronRight className="w-4 h-4 text-[#FACC15]" />
+                    {item}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
 
+          {/* Col 4: News Letter */}
+          <div>
+            <h3 className="text-2xl mb-6 font-medium">News Letter</h3>
+            <p className="text-gray-300 mb-6 text-sm leading-relaxed">
+              Stay updated with the latest news, tips, offers — straight to your inbox.
+            </p>
+            <form className="relative">
+              <input 
+                type="email" 
+                placeholder="Your Email Address" 
+                className="w-full bg-white text-black px-4 py-3 focus:outline-none"
+              />
+            </form>
+          </div>
+        </div>
       </div>
-      
-      <div className="max-w-7xl mx-auto px-6 border-t border-white/5 pt-8 flex flex-col md:flex-row items-center justify-between text-xs text-[#86868b]">
-        <p>&copy; {new Date().getFullYear()} {site.name}. All rights reserved.</p>
-        <div className="flex gap-6 mt-4 md:mt-0">
-          <Link href="#" className="hover:text-white transition-colors">Privacy Policy</Link>
-          <Link href="#" className="hover:text-white transition-colors">Terms of Service</Link>
-          <Link href="#" className="hover:text-white transition-colors">Legal Disclaimer</Link>
+
+      {/* Bottom Section */}
+      <div className="border-t border-gray-800">
+        <div className="max-w-7xl mx-auto px-6 py-6 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
+          <div>
+            Copyright © {new Date().getFullYear()}. All Rights Reserved.
+          </div>
+          
+          <div className="flex bg-white rounded my-4 md:my-0 px-1 py-1">
+            <button className="flex items-center gap-2 px-3 py-1 bg-gray-100 text-black text-xs font-semibold rounded shadow-sm">
+              <span className="text-[10px]">🇬🇧</span> English
+            </button>
+            <button className="flex items-center gap-2 px-3 py-1 text-black text-xs font-semibold">
+              <span className="text-[10px]">🇮🇳</span> हिंदी
+            </button>
+          </div>
+
+          <div>
+            Website Design by India
+          </div>
         </div>
       </div>
     </footer>
