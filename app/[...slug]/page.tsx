@@ -33,40 +33,52 @@ export default async function DynamicPage({ params }: { params: Promise<{ slug: 
             {/* Meta Items */}
             <div className="divide-y divide-gray-100">
               
-              <div className="flex items-center gap-3 p-4">
-                <Tag className="w-5 h-5 text-gray-700 shrink-0" />
-                <span className="text-gray-500 font-medium text-sm">Builder:</span>
-                <span className="text-[#0ea5e9] font-medium text-sm ml-auto text-right">Mirrikh Infratech</span>
+              <div className="flex items-start justify-between gap-3 p-4">
+                <div className="flex items-center gap-3 shrink-0">
+                  <Tag className="w-5 h-5 text-gray-700" />
+                  <span className="text-gray-500 font-medium text-sm">Builder:</span>
+                </div>
+                <span className="text-[#0ea5e9] font-medium text-sm text-right">Mirrikh Infratech</span>
               </div>
               
-              <div className="flex items-center gap-3 p-4">
-                <MapPin className="w-5 h-5 text-gray-700 shrink-0" />
-                <span className="text-gray-500 font-medium text-sm">Location:</span>
-                <span className="text-[#0ea5e9] font-medium text-sm ml-auto text-right line-clamp-1" title={project.location}>{project.location.split(',')[0]}</span>
+              <div className="flex items-start justify-between gap-3 p-4">
+                <div className="flex items-center gap-3 shrink-0">
+                  <MapPin className="w-5 h-5 text-gray-700" />
+                  <span className="text-gray-500 font-medium text-sm">Location:</span>
+                </div>
+                <span className="text-[#0ea5e9] font-medium text-sm text-right">{project.location.split(',')[0]}</span>
               </div>
 
-              <div className="flex items-center gap-3 p-4">
-                <Phone className="w-5 h-5 text-gray-700 shrink-0" />
-                <span className="text-gray-500 font-medium text-sm">Phone:</span>
-                <span className="text-[#0ea5e9] font-medium text-sm ml-auto text-right whitespace-nowrap">(+91) 98999 74590 / 70423 67340</span>
+              <div className="flex items-start justify-between gap-3 p-4">
+                <div className="flex items-center gap-3 shrink-0">
+                  <Phone className="w-5 h-5 text-gray-700" />
+                  <span className="text-gray-500 font-medium text-sm">Phone:</span>
+                </div>
+                <span className="text-[#0ea5e9] font-medium text-sm text-right">(+91) 98999 74590<br/>/ 70423 67340</span>
               </div>
 
-              <div className="flex items-center gap-3 p-4">
-                <Building className="w-5 h-5 text-gray-700 shrink-0" />
-                <span className="text-gray-500 font-medium text-sm">Property Status:</span>
-                <span className="text-gray-700 font-medium text-sm ml-auto text-right">{project.status}</span>
+              <div className="flex items-start justify-between gap-3 p-4">
+                <div className="flex items-center gap-3 shrink-0">
+                  <Building className="w-5 h-5 text-gray-700" />
+                  <span className="text-gray-500 font-medium text-sm">Property Status:</span>
+                </div>
+                <span className="text-gray-700 font-medium text-sm text-right">{project.status}</span>
               </div>
 
-              <div className="flex items-center gap-3 p-4">
-                <Home className="w-5 h-5 text-gray-700 shrink-0" />
-                <span className="text-gray-500 font-medium text-sm">Property Type:</span>
-                <span className="text-gray-700 font-medium text-sm ml-auto text-right">{project.type}</span>
+              <div className="flex items-start justify-between gap-3 p-4">
+                <div className="flex items-center gap-3 shrink-0">
+                  <Home className="w-5 h-5 text-gray-700" />
+                  <span className="text-gray-500 font-medium text-sm">Property Type:</span>
+                </div>
+                <span className="text-gray-700 font-medium text-sm text-right">{project.type}</span>
               </div>
 
-              <div className="flex items-center gap-3 p-4">
-                <Maximize className="w-5 h-5 text-gray-700 shrink-0" />
-                <span className="text-gray-500 font-medium text-sm whitespace-nowrap">Min Size (Sq. Yard):</span>
-                <span className="text-gray-700 font-medium text-sm ml-auto text-right">{project.minSize || '126'}</span>
+              <div className="flex items-start justify-between gap-3 p-4">
+                <div className="flex items-center gap-3 shrink-0">
+                  <Maximize className="w-5 h-5 text-gray-700" />
+                  <span className="text-gray-500 font-medium text-sm">Min Size (Sq. Yard):</span>
+                </div>
+                <span className="text-gray-700 font-medium text-sm text-right">{project.minSize || '126'}</span>
               </div>
 
               {project.brochure && (
