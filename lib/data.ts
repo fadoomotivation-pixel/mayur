@@ -62,7 +62,7 @@ export const projects = [
     size: '90 plots · 132–655 sq yd',
     status: 'New Launch',
     image: 'https://mirrikh.com/wp-content/uploads/2026/07/Mayur-NOVA-cover-banner-2.jpg',
-    logo: 'https://mirrikh.com/wp-content/uploads/2026/07/Mayur-NOVA-logo.png', // Fallback if missing
+    logo: 'https://mirrikh.com/wp-content/uploads/2026/07/Mayur-NOVA-Logo1-768x406.png',
     highlights: [
       'NA, NOC, Title Clear & Unit Plan Pass',
       'Gated Community with Club House',
@@ -83,7 +83,7 @@ export const projects = [
     size: 'Multiple plot sizes',
     status: 'Pre-Launch',
     image: 'https://mirrikh.com/wp-content/uploads/2026/07/Mayur-Aerocity-ll-cover-bg3.jpg',
-    logo: 'https://mirrikh.com/wp-content/uploads/2026/07/Mayur-Aerocity-ll-logo.png', // Fallback
+    logo: 'https://mirrikh.com/wp-content/uploads/2026/07/Mayur-Aerocity-II-Logo1-768x306.png',
     highlights: [
       'Closest project to Dholera Airport',
       'High appreciation potential',
