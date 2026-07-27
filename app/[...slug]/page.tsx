@@ -48,7 +48,7 @@ export default async function DynamicPage({ params }: { params: Promise<{ slug: 
               <div className="flex items-center gap-3 p-4">
                 <Phone className="w-5 h-5 text-gray-700 shrink-0" />
                 <span className="text-gray-500 font-medium text-sm">Phone:</span>
-                <span className="text-[#0ea5e9] font-medium text-sm ml-auto text-right">8882784781</span>
+                <span className="text-[#0ea5e9] font-medium text-sm ml-auto text-right whitespace-nowrap">(+91) 98999 74590 / 70423 67340</span>
               </div>
 
               <div className="flex items-center gap-3 p-4">
@@ -66,8 +66,16 @@ export default async function DynamicPage({ params }: { params: Promise<{ slug: 
               <div className="flex items-center gap-3 p-4">
                 <Maximize className="w-5 h-5 text-gray-700 shrink-0" />
                 <span className="text-gray-500 font-medium text-sm whitespace-nowrap">Min Size (Sq. Yard):</span>
-                <span className="text-gray-700 font-medium text-sm ml-auto text-right">126</span>
+                <span className="text-gray-700 font-medium text-sm ml-auto text-right">{project.minSize || '126'}</span>
               </div>
+
+              {project.brochure && (
+                <div className="p-4 bg-gray-50 border-t border-gray-100">
+                  <a href={project.brochure} target="_blank" rel="noopener noreferrer" className="w-full flex items-center justify-center gap-2 py-3 px-4 bg-[#FACC15] hover:bg-[#eab308] text-gray-900 font-bold rounded-md transition-colors text-sm shadow-sm">
+                    Download Brochure
+                  </a>
+                </div>
+              )}
 
             </div>
           </div>
@@ -103,6 +111,22 @@ export default async function DynamicPage({ params }: { params: Promise<{ slug: 
                 ))}
               </div>
             </div>
+
+            {project.map && (
+              <div>
+                <h3 className="text-2xl font-bold mb-6 text-[#333333]">Master Plan</h3>
+                <div className="relative w-full rounded-lg overflow-hidden border border-gray-200 shadow-sm bg-white p-2">
+                  <Image 
+                    src={project.map} 
+                    alt={`${project.name} Master Plan`}
+                    width={1200}
+                    height={800}
+                    className="w-full h-auto object-contain rounded"
+                    unoptimized
+                  />
+                </div>
+              </div>
+            )}
           </div>
           
         </div>
