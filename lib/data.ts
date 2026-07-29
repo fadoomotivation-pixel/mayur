@@ -62,7 +62,7 @@ export const whyDholera = [
     slug: 'expressway-connectivity',
     title: 'Expressway Connectivity',
     text: 'The 109 km, 4-lane Ahmedabad–Dholera Expressway cuts travel time to under an hour, with high-speed rail and metro links planned along the corridor.',
-    image: 'https://images.unsplash.com/photo-1449844908441-8829872d2607?q=80&w=2070&auto=format&fit=crop',
+    image: '/expressway_connectivity.jpg',
     detailedContent: [
       'The 109 km Ahmedabad-Dholera Expressway is a state-of-the-art access-controlled highway that reduces travel time between the cities to under 60 minutes.',
       'It serves as the main artery for moving goods and people efficiently into the smart city.',
@@ -75,7 +75,7 @@ export const whyDholera = [
     slug: 'early-growth-pricing',
     title: 'Early-Growth Pricing',
     text: 'Plot rates in Dholera are still in the early phase — roughly ₹6,000–₹10,000 per sq yd against mature Ahmedabad markets, giving investors a rare ground-floor entry.',
-    image: 'https://images.unsplash.com/photo-1560520653-9e0e4c89eb11?q=80&w=2073&auto=format&fit=crop',
+    image: '/early_growth_pricing.jpg',
     detailedContent: [
       'Unlike saturated markets where you buy at the peak, Dholera offers a genuine ground-floor entry opportunity for investors.',
       'Current plot rates range between ₹6,000 and ₹10,000 per sq yd, a fraction of the cost compared to nearby mature markets like Ahmedabad or Sanand.',
@@ -88,7 +88,7 @@ export const whyDholera = [
     slug: 'clear-title',
     title: 'Clear-Title, Legal Plots',
     text: 'Every plot is NA (Non-Agricultural), NOC-approved, title clear and plan passed — sold with registered sale deed for a fully transparent purchase.',
-    image: 'https://images.unsplash.com/photo-1450101499163-c8848e968838?q=80&w=2070&auto=format&fit=crop',
+    image: '/clear_title_legal.jpg',
     detailedContent: [
       '100% legal security: Every plot offered is NA (Non-Agricultural) and explicitly approved for residential, commercial, or industrial use.',
       'Town planning (TP) and unit plans are officially passed by the local authorities (DICDL).',
