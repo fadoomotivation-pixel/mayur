@@ -20,33 +20,81 @@ export const stats = [
 export const whyDholera = [
   {
     icon: 'Landmark',
+    slug: 'government-backed-sir',
     title: 'Government-Backed SIR',
     text: "Dholera is a Gujarat Government notified Special Investment Region under the Delhi–Mumbai Industrial Corridor (DMIC) — India's first and largest greenfield smart city, with plug-and-play trunk infrastructure already built.",
+    image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop',
+    detailedContent: [
+      'As a Special Investment Region (SIR), Dholera enjoys unique administrative and developmental autonomy, backed by both the state and central governments.',
+      'Part of the ambitious Delhi-Mumbai Industrial Corridor (DMIC), ensuring long-term national strategic importance.',
+      'World-class "plug-and-play" infrastructure is already constructed, meaning businesses and residents can connect to power, water, and data grids instantly.',
+      'Massive land parcels dedicated specifically to industrial, residential, and commercial growth with zero bureaucratic red tape.'
+    ]
   },
   {
     icon: 'Cpu',
+    slug: 'semiconductor-hub',
     title: '₹91,000 Cr Semiconductor Hub',
     text: "Tata Electronics' mega semiconductor fabrication plant — producing India's first homegrown chips — anchors Dholera's industrial ecosystem, drawing suppliers, engineers and housing demand.",
+    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop',
+    detailedContent: [
+      'Tata Electronics is investing a staggering ₹91,000 crore to build India’s first mega semiconductor fabrication plant in Dholera.',
+      'This single project is projected to create over 20,000 direct skilled jobs and nearly 80,000 indirect jobs in the region.',
+      'A vast ecosystem of ancillary suppliers and vendors is already acquiring land around the fab, driving massive commercial demand.',
+      'The influx of high-income engineers and professionals will create unprecedented demand for premium residential housing and rentals.'
+    ]
   },
   {
     icon: 'Plane',
+    slug: 'international-airport',
     title: 'International Airport',
     text: 'Dholera International Airport (Navagam) is in advanced construction, designed for both cargo and passenger operations — a direct catalyst for land appreciation around the SIR.',
+    image: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=2074&auto=format&fit=crop',
+    detailedContent: [
+      'The upcoming Dholera International Airport at Navagam is being built to decongest the Ahmedabad airport and serve as a massive global logistics hub.',
+      'Designed for heavy cargo and international passenger flights, making Dholera a globally connected smart city.',
+      'Phase 1 of the airport is rapidly progressing and is expected to be operational by 2026.',
+      'Historically, land values within a 20-30km radius of new international airports see exponential appreciation before and right after inauguration.'
+    ]
   },
   {
     icon: 'Route',
+    slug: 'expressway-connectivity',
     title: 'Expressway Connectivity',
     text: 'The 109 km, 4-lane Ahmedabad–Dholera Expressway cuts travel time to under an hour, with high-speed rail and metro links planned along the corridor.',
+    image: 'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?q=80&w=2070&auto=format&fit=crop',
+    detailedContent: [
+      'The 109 km Ahmedabad-Dholera Expressway is a state-of-the-art access-controlled highway that reduces travel time between the cities to under 60 minutes.',
+      'It serves as the main artery for moving goods and people efficiently into the smart city.',
+      'The central spine of the expressway is designed to accommodate the upcoming Mass Rapid Transit System (MRTS) / Metro rail.',
+      'Seamless connectivity to major ports like Pipavav and Kandla ensures Dholera is the ultimate logistical sweet spot for manufacturing.'
+    ]
   },
   {
     icon: 'TrendingUp',
+    slug: 'early-growth-pricing',
     title: 'Early-Growth Pricing',
     text: 'Plot rates in Dholera are still in the early phase — roughly ₹6,000–₹10,000 per sq yd against mature Ahmedabad markets, giving investors a rare ground-floor entry.',
+    image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1973&auto=format&fit=crop',
+    detailedContent: [
+      'Unlike saturated markets where you buy at the peak, Dholera offers a genuine ground-floor entry opportunity for investors.',
+      'Current plot rates range between ₹6,000 and ₹10,000 per sq yd, a fraction of the cost compared to nearby mature markets like Ahmedabad or Sanand.',
+      'As mega-projects like the Airport and Tata Fab near completion, these prices are projected to multiply rapidly.',
+      'Early investors benefit from the steepest part of the appreciation curve as the city transitions from planning to operational.'
+    ]
   },
   {
     icon: 'ShieldCheck',
+    slug: 'clear-title',
     title: 'Clear-Title, Legal Plots',
     text: 'Every plot is NA (Non-Agricultural), NOC-approved, title clear and plan passed — sold with registered sale deed for a fully transparent purchase.',
+    image: 'https://images.unsplash.com/photo-1589829085413-56de8ae18c73?q=80&w=2112&auto=format&fit=crop',
+    detailedContent: [
+      '100% legal security: Every plot offered is NA (Non-Agricultural) and explicitly approved for residential, commercial, or industrial use.',
+      'Town planning (TP) and unit plans are officially passed by the local authorities (DICDL).',
+      'Zero ambiguity: All plots come with clear, unencumbered titles, ensuring a stress-free investment.',
+      'Transactions are completed transparently with immediate registered sale deeds in the buyer’s name.'
+    ]
   },
 ];
 
