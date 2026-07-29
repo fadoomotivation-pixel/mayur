@@ -82,15 +82,15 @@ export default function Header() {
           </button>
 
           <nav className={`md:flex items-center gap-8 px-6 ${isOpen ? 'flex flex-col absolute top-full left-0 right-0 bg-black py-4 z-50' : 'hidden'}`}>
-            <Link href="/" className="hover:text-[#FACC15] py-4 text-sm font-medium">Home</Link>
-            <Link href="/investment" className="hover:text-[#FACC15] py-4 text-sm font-medium">Investment</Link>
+            <Link href="/" onClick={() => setIsOpen(false)} className="hover:text-[#FACC15] py-4 text-sm font-medium">Home</Link>
+            <Link href="/investment" onClick={() => setIsOpen(false)} className="hover:text-[#FACC15] py-4 text-sm font-medium">Investment</Link>
             
-            <Link href="/projects" className="relative group flex items-center gap-1 hover:text-[#FACC15] py-4 text-sm font-medium">
+            <Link href="/projects" onClick={() => setIsOpen(false)} className="relative group flex items-center gap-1 hover:text-[#FACC15] py-4 text-sm font-medium">
               Projects <ChevronDown className="w-4 h-4" />
             </Link>
             
-            <Link href="/contact-us" className="hover:text-[#FACC15] py-4 text-sm font-medium">Contact</Link>
-            <Link href="/career" className="hover:text-[#FACC15] py-4 text-sm font-medium">Careers</Link>
+            <Link href="/contact-us" onClick={() => setIsOpen(false)} className="hover:text-[#FACC15] py-4 text-sm font-medium">Contact</Link>
+            <Link href="/career" onClick={() => setIsOpen(false)} className="hover:text-[#FACC15] py-4 text-sm font-medium">Careers</Link>
           </nav>
 
           <div className="hidden md:block">
