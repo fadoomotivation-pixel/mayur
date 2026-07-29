@@ -165,7 +165,7 @@ export default function Home() {
                 </div>
                 <p className="text-sm font-semibold tracking-widest text-blue-600 uppercase mb-4">Limited Time Offer</p>
                 <div className="flex items-baseline gap-2 mb-2 flex-wrap">
-                  <span className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tighter text-gray-900">₹10,750</span>
+                  <span className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tighter text-gray-900">₹9,750</span>
                   <span className="text-xl text-gray-500">/ Sq. Yd.</span>
                 </div>
                 <p className="text-gray-500 mb-8 pb-8 border-b border-gray-100 text-sm sm:text-base">Starting price for premium plots ranging from 125.84 to 377.46 Sq. Yd.</p>

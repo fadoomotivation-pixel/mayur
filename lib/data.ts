@@ -280,7 +280,7 @@ export const faqs = [
   },
   {
     q: 'What is the minimum investment to buy a plot in Dholera?',
-    a: 'A typical plot starts around ₹10,750 per sq yd depending on the project and location. Flexible payment plans are available.',
+    a: 'A typical plot starts around ₹9,750 per sq yd depending on the project and location. Flexible payment plans are available.',
   },
   {
     q: 'Is Dholera investment safe for NRIs?',
