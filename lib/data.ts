@@ -75,7 +75,7 @@ export const whyDholera = [
     slug: 'early-growth-pricing',
     title: 'Early-Growth Pricing',
     text: 'Plot rates in Dholera are still in the early phase — roughly ₹6,000–₹10,000 per sq yd against mature Ahmedabad markets, giving investors a rare ground-floor entry.',
-    image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1973&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1560520653-9e0e4c89eb11?q=80&w=2073&auto=format&fit=crop',
     detailedContent: [
       'Unlike saturated markets where you buy at the peak, Dholera offers a genuine ground-floor entry opportunity for investors.',
       'Current plot rates range between ₹6,000 and ₹10,000 per sq yd, a fraction of the cost compared to nearby mature markets like Ahmedabad or Sanand.',
@@ -88,12 +88,12 @@ export const whyDholera = [
     slug: 'clear-title',
     title: 'Clear-Title, Legal Plots',
     text: 'Every plot is NA (Non-Agricultural), NOC-approved, title clear and plan passed — sold with registered sale deed for a fully transparent purchase.',
-    image: 'https://images.unsplash.com/photo-1589829085413-56de8ae18c73?q=80&w=2112&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1450101499163-c8848e968838?q=80&w=2070&auto=format&fit=crop',
     detailedContent: [
       '100% legal security: Every plot offered is NA (Non-Agricultural) and explicitly approved for residential, commercial, or industrial use.',
       'Town planning (TP) and unit plans are officially passed by the local authorities (DICDL).',
       'Zero ambiguity: All plots come with clear, unencumbered titles, ensuring a stress-free investment.',
-      'Transactions are completed transparently with immediate registered sale deeds in the buyer’s name.'
+      'Transactions are completed transparently with immediate registered sale deeds in the buyer\u2019s name.'
     ]
   },
 ];
@@ -145,7 +145,7 @@ export const projects = [
       'Registered sale deed guaranteed',
     ],
     accent: '#3b82f6',
-    desc: 'Strategically located near the upcoming Dholera International Airport, Mayur Aerocity II is designed for investors seeking high appreciation. The project offers premium plotting options with guaranteed registered sale deeds and unmatched proximity to major transport hubs.',
+    desc: 'Strategically located near the upcoming Dholera International Airport, Mayur Aerocity II is designed for investors seeking high appreciation.',
   },
   {
     name: 'Mayur Park III',
@@ -169,7 +169,7 @@ export const projects = [
       'NA · NOC · Title Clear',
     ],
     accent: '#e8c774',
-    desc: 'Mayur Park III is a premium residential project located in Valinda, Dholera Smart City, strategically positioned near the Dholera SIR Boundary (Industrial Zone). It offers thoughtfully planned residential spaces with robust infrastructure.',
+    desc: 'Mayur Park III is a premium residential project located in Valinda, Dholera Smart City.',
   },
   {
     name: 'Mayur Forest Villa',
@@ -193,7 +193,7 @@ export const projects = [
       'NA · NOC · Title Clear',
     ],
     accent: '#22c55e',
-    desc: 'Mayur Forest Villa is a thoughtfully planned residential project offering premium villa plots amidst lush greenery and smart urban infrastructure, designed for sustainable and luxurious living.',
+    desc: 'Mayur Forest Villa is a thoughtfully planned residential project offering premium villa plots amidst lush greenery.',
   },
   {
     name: 'Mayur Greenz Courtyard',
@@ -217,7 +217,7 @@ export const projects = [
       'Excellent connectivity',
     ],
     accent: '#f59e0b',
-    desc: 'Mayur Greenz Courtyard is a distinguished enclave of luxury villas inspired by the grace of Roman architecture, thoughtfully re-imagined for modern living with expansive open spaces and premium lifestyle amenities.',
+    desc: 'Mayur Greenz Courtyard is a distinguished enclave of luxury villas inspired by the grace of Roman architecture.',
   },
   {
     name: 'Mayur Ananta II',
@@ -241,7 +241,7 @@ export const projects = [
       'NA · NOC · Title Clear',
     ],
     accent: '#8b5cf6',
-    desc: 'After the remarkable success of Mayur Ananta, we present Mayur Ananta II. The largest premium residential land project in its segment in the Dholera Smart City region offering unmatched appreciation potential.',
+    desc: 'After the remarkable success of Mayur Ananta, we present Mayur Ananta II. The largest premium residential land project in its segment.',
   },
   {
     name: 'Mayur Industrial Landmark',
@@ -265,7 +265,7 @@ export const projects = [
       'NA · NOC · Title Clear',
     ],
     accent: '#64748b',
-    desc: 'Located in Dholera Smart City, India\'s emerging modern manufacturing hub, this industrial plot project offers a strategic opportunity to invest in world-class infrastructure tailored for businesses.',
+    desc: 'Located in Dholera Smart City, India\'s emerging modern manufacturing hub, this industrial plot project offers a strategic opportunity.',
   }
 ];
 

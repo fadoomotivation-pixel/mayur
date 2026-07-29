@@ -9,28 +9,20 @@ export default async function DynamicPage({ params }: { params: Promise<{ slug: 
   const path = resolvedParams.slug.join('/');
   const lastSegment = resolvedParams.slug[resolvedParams.slug.length - 1];
   
-  // Check if it's a specific project
   const project = projects.find(p => p.slug === lastSegment);
 
   if (project) {
-    // Render Identical Project Template matching the screenshot
     return (
       <main className="min-h-screen bg-white">
-        
-        {/* Title Area */}
         <div className="max-w-7xl mx-auto px-6 py-8 border-b border-gray-100">
-          <h1 className="text-3xl md:text-4xl font-bold text-[#333333]">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#333333]">
             {project.name}
           </h1>
         </div>
 
-        {/* Main Content Area */}
         <div className="max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 lg:grid-cols-4 gap-8 items-start">
           
-          {/* Left Sidebar - Meta Data */}
-          <div className="lg:col-span-1 border border-gray-200 rounded-lg overflow-hidden bg-white shadow-sm">
-            
-            {/* Meta Items */}
+          <div className="lg:col-span-1 border border-gray-200 rounded-lg overflow-hidden bg-white shadow-sm order-2 lg:order-1">
             <div className="divide-y divide-gray-100">
               
               <div className="flex items-start justify-between gap-3 p-4">
@@ -60,7 +52,7 @@ export default async function DynamicPage({ params }: { params: Promise<{ slug: 
               <div className="flex items-start justify-between gap-3 p-4">
                 <div className="flex items-center gap-3 shrink-0">
                   <Building className="w-5 h-5 text-gray-700" />
-                  <span className="text-gray-500 font-medium text-sm">Property Status:</span>
+                  <span className="text-gray-500 font-medium text-sm">Status:</span>
                 </div>
                 <span className="text-gray-700 font-medium text-sm text-right">{project.status}</span>
               </div>
@@ -68,7 +60,7 @@ export default async function DynamicPage({ params }: { params: Promise<{ slug: 
               <div className="flex items-start justify-between gap-3 p-4">
                 <div className="flex items-center gap-3 shrink-0">
                   <Home className="w-5 h-5 text-gray-700" />
-                  <span className="text-gray-500 font-medium text-sm">Property Type:</span>
+                  <span className="text-gray-500 font-medium text-sm">Type:</span>
                 </div>
                 <span className="text-gray-700 font-medium text-sm text-right">{project.type}</span>
               </div>
@@ -92,11 +84,10 @@ export default async function DynamicPage({ params }: { params: Promise<{ slug: 
             </div>
           </div>
 
-          {/* Right Main Content - Hero Image */}
-          <div className="lg:col-span-3 space-y-10">
-            <div className="relative w-full aspect-[21/9] md:aspect-[2.5/1] overflow-hidden rounded-md">
+          <div className="lg:col-span-3 space-y-10 order-1 lg:order-2">
+            <div className="relative w-full aspect-[16/9] md:aspect-[2.5/1] overflow-hidden rounded-md">
               <Image 
-                src="https://raw.githubusercontent.com/fadoomotivation-pixel/cap/main/public/hero-bg.jpg" 
+                src={project.image} 
                 alt={project.name}
                 fill
                 className="object-cover"
@@ -104,7 +95,6 @@ export default async function DynamicPage({ params }: { params: Promise<{ slug: 
               />
             </div>
 
-            {/* Additional Sections added below image to fill out the page */}
             <div>
               <h2 className="text-2xl font-bold mb-4 text-[#333333]">Overview</h2>
               <p className="text-gray-600 leading-relaxed">
@@ -146,7 +136,6 @@ export default async function DynamicPage({ params }: { params: Promise<{ slug: 
     );
   }
 
-  // If not a specific project, render Informational / Category Template
   const rawTitle = lastSegment;
   const title = rawTitle.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
 
@@ -159,7 +148,7 @@ export default async function DynamicPage({ params }: { params: Promise<{ slug: 
     <main className="min-h-screen bg-[#f9fafb] pt-12 pb-20 px-6">
       <div className="max-w-7xl mx-auto">
         <div className="mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-6 text-gray-900">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-6 text-gray-900">
             {title}
           </h1>
           <p className="text-lg text-gray-600 mb-8 max-w-2xl">
@@ -172,7 +161,7 @@ export default async function DynamicPage({ params }: { params: Promise<{ slug: 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {categoryProjects.map(proj => (
                 <Link key={proj.slug} href={`/project/${proj.slug}`} className="group block h-full">
-                  <div className="bg-white border border-gray-200 h-full hover:shadow-lg transition-all duration-300 flex flex-col overflow-hidden">
+                  <div className="bg-white border border-gray-200 h-full hover:shadow-lg transition-all duration-300 flex flex-col overflow-hidden rounded-lg">
                     {proj.image && (
                       <div className="relative w-full h-48 bg-gray-100 overflow-hidden">
                         <Image 
