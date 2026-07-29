@@ -62,7 +62,7 @@ export const whyDholera = [
     slug: 'expressway-connectivity',
     title: 'Expressway Connectivity',
     text: 'The 109 km, 4-lane Ahmedabad–Dholera Expressway cuts travel time to under an hour, with high-speed rail and metro links planned along the corridor.',
-    image: 'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?q=80&w=2070&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1449844908441-8829872d2607?q=80&w=2070&auto=format&fit=crop',
     detailedContent: [
       'The 109 km Ahmedabad-Dholera Expressway is a state-of-the-art access-controlled highway that reduces travel time between the cities to under 60 minutes.',
       'It serves as the main artery for moving goods and people efficiently into the smart city.',

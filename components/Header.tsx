@@ -45,7 +45,7 @@ export default function Header() {
             </div>
             <div>
               <div className="text-2xl md:text-3xl font-bold tracking-widest leading-none text-black">DHOLERA</div>
-              <div className="text-lg md:text-xl tracking-widest font-light text-black">CITY SMART</div>
+              <div className="text-lg md:text-xl tracking-widest font-light text-black">SMART CITY</div>
             </div>
           </Link>
 

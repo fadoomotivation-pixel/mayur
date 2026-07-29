@@ -21,7 +21,7 @@ export default function Footer() {
             </div>
             <div>
               <div className="text-3xl font-bold tracking-widest leading-none">DHOLERA</div>
-              <div className="text-xl tracking-widest font-light">CITY SMART</div>
+              <div className="text-xl tracking-widest font-light">SMART CITY</div>
             </div>
           </div>
 
