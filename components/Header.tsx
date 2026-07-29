@@ -3,6 +3,7 @@
 import { Phone, Mail, Clock, ChevronDown, Menu, X } from "lucide-react";
 import { useState } from "react";
 import Link from "next/link";
+import { site } from "@/lib/data";
 
 // Custom SVG components for social icons
 const Facebook = ({ className }: { className?: string }) => <svg viewBox="0 0 24 24" fill="currentColor" stroke="none" className={className}><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>;
@@ -16,7 +17,7 @@ export default function Header() {
   return (
     <header className="w-full font-sans">
       {/* Top Bar - Yellow/Black split */}
-      <div className="bg-black text-white text-xs h-10 flex items-center relative overflow-hidden">
+      <div className="bg-black text-white text-xs h-10 hidden sm:flex items-center relative overflow-hidden">
         {/* Yellow slanted background for the left side */}
         <div className="absolute top-0 left-0 bottom-0 w-64 bg-[#FACC15]" style={{ clipPath: 'polygon(0 0, 100% 0, 90% 100%, 0% 100%)' }}></div>
         
@@ -36,27 +37,26 @@ export default function Header() {
 
       {/* Middle Bar - Logo and Contact Info */}
       <div className="bg-white">
-        <div className="max-w-7xl mx-auto px-6 py-6 flex flex-col md:flex-row justify-between items-center gap-6">
+        <div className="max-w-7xl mx-auto px-6 py-4 md:py-6 flex flex-col md:flex-row justify-between items-center gap-4 md:gap-6">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 shrink-0">
-            <div className="w-12 h-12 bg-[#F87171] text-black font-bold rounded-full flex items-center justify-center text-3xl font-serif">
+            <div className="w-10 h-10 md:w-12 md:h-12 bg-[#F87171] text-black font-bold rounded-full flex items-center justify-center text-2xl md:text-3xl font-serif">
               d
             </div>
-            {/* Using an orange/red color here based on the screenshot where it looks orange/red in the header. #F97316 or similar. Actually in footer it was yellow, in header it looks orange #f97316 */}
             <div>
-              <div className="text-3xl font-bold tracking-widest leading-none text-black">DHOLERA</div>
-              <div className="text-xl tracking-widest font-light text-black">CITY SMART</div>
+              <div className="text-2xl md:text-3xl font-bold tracking-widest leading-none text-black">DHOLERA</div>
+              <div className="text-lg md:text-xl tracking-widest font-light text-black">CITY SMART</div>
             </div>
           </Link>
 
-          <div className="flex flex-col sm:flex-row gap-8 items-center border border-gray-100 p-2 pr-6">
+          <div className="hidden md:flex flex-col sm:flex-row gap-8 items-center border border-gray-100 p-2 pr-6">
             <div className="flex items-center gap-4">
               <div className="w-12 h-12 border border-gray-200 flex items-center justify-center text-[#FACC15]">
                 <Phone className="w-6 h-6" />
               </div>
               <div>
                 <div className="text-gray-900 font-medium">Have Any Question</div>
-                <div className="text-[#FACC15] font-semibold text-sm sm:text-base">(+91) 98999 74590 / 70423 67340</div>
+                <div className="text-[#FACC15] font-semibold text-sm">(+91) 98999 74590 / 70423 67340</div>
               </div>
             </div>
             
@@ -66,7 +66,7 @@ export default function Header() {
               </div>
               <div>
                 <div className="text-gray-900 font-medium">Send Your Mail</div>
-                <div className="text-[#FACC15] font-semibold">info@dholeracitysmart.com</div>
+                <div className="text-[#FACC15] font-semibold">{site.email}</div>
               </div>
             </div>
           </div>
@@ -77,18 +77,14 @@ export default function Header() {
       <div className="bg-black text-white relative">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           
-          <button className="md:hidden p-4" onClick={() => setIsOpen(!isOpen)}>
+          <button className="md:hidden p-4" aria-label="Toggle menu" onClick={() => setIsOpen(!isOpen)}>
             {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
 
           <nav className={`md:flex items-center gap-8 px-6 ${isOpen ? 'flex flex-col absolute top-full left-0 right-0 bg-black py-4 z-50' : 'hidden'}`}>
             <Link href="/" onClick={() => setIsOpen(false)} className="hover:text-[#FACC15] py-4 text-sm font-medium">Home</Link>
             <Link href="/investment" onClick={() => setIsOpen(false)} className="hover:text-[#FACC15] py-4 text-sm font-medium">Investment</Link>
-            
-            <Link href="/projects" onClick={() => setIsOpen(false)} className="relative group flex items-center gap-1 hover:text-[#FACC15] py-4 text-sm font-medium">
-              Projects <ChevronDown className="w-4 h-4" />
-            </Link>
-            
+            <Link href="/projects" onClick={() => setIsOpen(false)} className="hover:text-[#FACC15] py-4 text-sm font-medium">Projects</Link>
             <Link href="/contact-us" onClick={() => setIsOpen(false)} className="hover:text-[#FACC15] py-4 text-sm font-medium">Contact</Link>
             <Link href="/career" onClick={() => setIsOpen(false)} className="hover:text-[#FACC15] py-4 text-sm font-medium">Careers</Link>
           </nav>

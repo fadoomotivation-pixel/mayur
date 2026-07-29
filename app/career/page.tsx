@@ -1,7 +1,6 @@
 import { site } from "@/lib/data";
 import { Briefcase, MapPin, CheckCircle2, ChevronRight, Phone } from "lucide-react";
 import Link from "next/link";
-import Image from "next/image";
 
 export default function CareerPage() {
   const jobs = [
@@ -59,13 +58,13 @@ export default function CareerPage() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {jobs.map(job => (
-            <div key={job.id} className="bg-white border border-gray-200 rounded-lg p-8 hover:shadow-xl transition-shadow duration-300 flex flex-col">
-              <div className="flex justify-between items-start mb-6">
+            <div key={job.id} className="bg-white border border-gray-200 rounded-lg p-6 sm:p-8 hover:shadow-xl transition-shadow duration-300 flex flex-col">
+              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2 mb-6">
                 <div>
                   <div className="text-sm font-semibold text-[#FACC15] mb-2 uppercase tracking-wider">{job.department}</div>
                   <h3 className="text-2xl font-bold text-gray-900">{job.title}</h3>
                 </div>
-                <span className="bg-gray-100 text-gray-600 text-xs font-bold px-3 py-1 rounded-full">{job.type}</span>
+                <span className="bg-gray-100 text-gray-600 text-xs font-bold px-3 py-1 rounded-full self-start">{job.type}</span>
               </div>
               
               <div className="flex items-center gap-4 mb-6 text-sm text-gray-500">
@@ -93,11 +92,11 @@ export default function CareerPage() {
                 </ul>
               </div>
 
-              <div className="mt-auto pt-8 border-t border-gray-100 flex items-center justify-between">
-                <a href={`mailto:${site.email}?subject=Application for ${job.title}`} className="bg-black text-white px-8 py-3 font-semibold hover:bg-[#FACC15] hover:text-black transition-colors flex items-center gap-2">
+              <div className="mt-auto pt-8 border-t border-gray-100 flex flex-wrap items-center gap-4">
+                <a href={`mailto:${site.email}?subject=Application for ${job.title}`} className="bg-black text-white px-6 sm:px-8 py-3 font-semibold hover:bg-[#FACC15] hover:text-black transition-colors flex items-center gap-2">
                   Apply Now <ChevronRight className="w-4 h-4" />
                 </a>
-                <a href={`tel:${site.phoneAlt}`} className="text-gray-500 hover:text-black flex items-center gap-2 transition-colors">
+                <a href={`tel:+91${site.phoneAlt}`} className="text-gray-500 hover:text-black flex items-center gap-2 transition-colors">
                   <Phone className="w-4 h-4" /> Call HR
                 </a>
               </div>
@@ -106,7 +105,7 @@ export default function CareerPage() {
         </div>
 
         {/* Why Join Us */}
-        <div className="mt-24 bg-white border border-gray-200 p-12 text-center rounded-lg">
+        <div className="mt-24 bg-white border border-gray-200 p-8 sm:p-12 text-center rounded-lg">
           <h2 className="text-3xl font-bold text-gray-900 mb-6">Why Join {site.name}?</h2>
           <p className="text-gray-600 max-w-3xl mx-auto leading-relaxed mb-12">
             Working with us means being part of a visionary project — Dholera Smart City. We offer a dynamic work environment, competitive compensation, and incredible growth opportunities as we build the future of urban living in India.

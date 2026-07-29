@@ -1,7 +1,6 @@
 import { site } from "@/lib/data";
 import { Mail, Phone, ChevronRight } from "lucide-react";
 import Link from "next/link";
-import Image from "next/image";
 
 // Custom SVG components for social icons
 const Facebook = ({ className }: { className?: string }) => <svg viewBox="0 0 24 24" fill="currentColor" stroke="none" className={className}><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>;
@@ -17,7 +16,6 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center border-b border-gray-800 pb-12">
           {/* Logo */}
           <div className="flex items-center gap-2">
-            {/* Imitating the logo from the screenshot */}
             <div className="w-12 h-12 bg-[#FACC15] text-black font-bold rounded-full flex items-center justify-center text-3xl font-serif">
               d
             </div>
@@ -29,19 +27,19 @@ export default function Footer() {
 
           {/* Phone */}
           <div className="flex items-center gap-4 md:justify-center">
-            <Phone className="w-8 h-8 text-[#FACC15] fill-current" />
+            <Phone className="w-8 h-8 text-[#FACC15] shrink-0" />
             <div>
               <div className="text-[#FACC15] font-semibold">Phone</div>
-              <div className="text-[#FACC15]">(+91) 98999 74590 / 70423 67340</div>
+              <div className="text-[#FACC15] text-sm sm:text-base">(+91) 98999 74590 / 70423 67340</div>
             </div>
           </div>
 
           {/* Mail */}
           <div className="flex items-center gap-4 md:justify-end">
-            <Mail className="w-8 h-8 text-[#FACC15] fill-current" />
+            <Mail className="w-8 h-8 text-[#FACC15] shrink-0" />
             <div>
               <div className="text-[#FACC15] font-semibold">Mail</div>
-              <div className="text-[#FACC15]">info@dholeracitysmart.com</div>
+              <div className="text-[#FACC15]">{site.email}</div>
             </div>
           </div>
         </div>
@@ -80,9 +78,9 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/villages" className="flex items-center gap-3 text-gray-300 hover:text-[#FACC15] transition-colors">
+                <Link href="/projects" className="flex items-center gap-3 text-gray-300 hover:text-[#FACC15] transition-colors">
                   <ChevronRight className="w-4 h-4 text-[#FACC15]" />
-                  Villages
+                  Projects
                 </Link>
               </li>
               <li>
@@ -117,9 +115,9 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/support" className="flex items-center gap-3 text-gray-300 hover:text-[#FACC15] transition-colors">
+                <Link href="/career" className="flex items-center gap-3 text-gray-300 hover:text-[#FACC15] transition-colors">
                   <ChevronRight className="w-4 h-4 text-[#FACC15]" />
-                  Support
+                  Careers
                 </Link>
               </li>
             </ul>
@@ -131,12 +129,15 @@ export default function Footer() {
             <p className="text-gray-300 mb-6 text-sm leading-relaxed">
               Stay updated with the latest news, tips, offers — straight to your inbox.
             </p>
-            <form className="relative">
+            <form className="relative" onSubmit={(e) => e.preventDefault()}>
               <input 
                 type="email" 
                 placeholder="Your Email Address" 
-                className="w-full bg-white text-black px-4 py-3 focus:outline-none"
+                className="w-full bg-white text-black px-4 py-3 pr-24 focus:outline-none"
               />
+              <button type="submit" className="absolute right-0 top-0 bottom-0 bg-[#FACC15] text-black font-bold px-4 hover:bg-yellow-400 transition-colors text-sm">
+                Subscribe
+              </button>
             </form>
           </div>
         </div>
@@ -144,22 +145,12 @@ export default function Footer() {
 
       {/* Bottom Section */}
       <div className="border-t border-gray-800">
-        <div className="max-w-7xl mx-auto px-6 py-6 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
+        <div className="max-w-7xl mx-auto px-6 py-6 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400 gap-4">
           <div>
-            Copyright © {new Date().getFullYear()}. All Rights Reserved.
+            Copyright © {new Date().getFullYear()} {site.name}. All Rights Reserved.
           </div>
-          
-          <div className="flex bg-white rounded my-4 md:my-0 px-1 py-1">
-            <button className="flex items-center gap-2 px-3 py-1 bg-gray-100 text-black text-xs font-semibold rounded shadow-sm">
-              <span className="text-[10px]">🇬🇧</span> English
-            </button>
-            <button className="flex items-center gap-2 px-3 py-1 text-black text-xs font-semibold">
-              <span className="text-[10px]">🇮🇳</span> हिंदी
-            </button>
-          </div>
-
           <div>
-            Website Design by India
+            Powered by Mirrikh Group
           </div>
         </div>
       </div>
