@@ -129,7 +129,7 @@ export default function Footer() {
             <p className="text-gray-300 mb-6 text-sm leading-relaxed">
               Stay updated with the latest news, tips, offers — straight to your inbox.
             </p>
-            <form className="relative" onSubmit={(e) => e.preventDefault()}>
+            <form className="relative">
               <input 
                 type="email" 
                 placeholder="Your Email Address" 

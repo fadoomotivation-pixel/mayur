@@ -1,3 +1,4 @@
+"use client";
 import { site } from "@/lib/data";
 import { Mail, MapPin, Phone } from "lucide-react";
 
