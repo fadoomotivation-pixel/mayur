@@ -85,6 +85,7 @@ export default function Header() {
             <Link href="/" onClick={() => setIsOpen(false)} className="hover:text-[#FACC15] py-4 text-sm font-medium">Home</Link>
             <Link href="/investment" onClick={() => setIsOpen(false)} className="hover:text-[#FACC15] py-4 text-sm font-medium">Investment</Link>
             <Link href="/projects" onClick={() => setIsOpen(false)} className="hover:text-[#FACC15] py-4 text-sm font-medium">Projects</Link>
+            <Link href="/gallery" onClick={() => setIsOpen(false)} className="hover:text-[#FACC15] py-4 text-sm font-medium text-[#FACC15]">Gallery</Link>
             <Link href="/contact-us" onClick={() => setIsOpen(false)} className="hover:text-[#FACC15] py-4 text-sm font-medium">Contact</Link>
             <Link href="/career" onClick={() => setIsOpen(false)} className="hover:text-[#FACC15] py-4 text-sm font-medium">Careers</Link>
           </nav>
