@@ -2,8 +2,8 @@ import { site } from '@/lib/data'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Terms & Conditions | ' + site.title,
-  description: 'Terms and Conditions for ' + site.title,
+  title: 'Terms & Conditions | ' + site.name,
+  description: 'Terms and Conditions for ' + site.name,
 }
 
 export default function TermsAndConditionsPage() {

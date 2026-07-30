@@ -2,8 +2,8 @@ import { site } from '@/lib/data'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy | ' + site.title,
-  description: 'Privacy Policy for ' + site.title,
+  title: 'Privacy Policy | ' + site.name,
+  description: 'Privacy Policy for ' + site.name,
 }
 
 export default function PrivacyPolicyPage() {
