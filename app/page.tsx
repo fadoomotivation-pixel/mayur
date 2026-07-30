@@ -66,10 +66,9 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-[#f9fafb] overflow-hidden selection:bg-[#000] selection:text-white">
       
-      {/* 1. HERO SECTION */}
-      <section className="relative min-h-screen flex items-center justify-center pt-20">
+      {/* Hero Section */}
+      <section className="relative h-[60vh] md:h-screen w-full flex items-center justify-center pt-20">
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/50 to-black/80 z-10" />
           {heroImages.map((src, idx) => (
             <img 
               key={idx}
@@ -78,33 +77,6 @@ export default function Home() {
               className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-[2000ms] ease-in-out ${idx === currentSlide ? 'opacity-100 scale-105' : 'opacity-0 scale-100'}`}
             />
           ))}
-        </div>
-
-        <div className="relative z-20 max-w-7xl mx-auto px-6 text-center">
-          <motion.div initial="hidden" animate="visible" variants={stagger} className="flex flex-col items-center">
-            <motion.div variants={fadeUp} className="mb-6 inline-flex items-center gap-2 bg-white/10 backdrop-blur-md shadow-sm rounded-full px-4 py-1.5 border border-white/20">
-              <span className="w-2 h-2 rounded-full bg-[#FACC15] animate-pulse" />
-              <span className="text-xs font-semibold tracking-widest text-white uppercase">Special Pre-Launch Offer</span>
-            </motion.div>
-            
-            <motion.h1 variants={fadeUp} className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter mb-6 text-white drop-shadow-lg">
-              Mayur <span className="text-[#FACC15]">Aerocity II</span>
-            </motion.h1>
-            
-            <motion.p variants={fadeUp} className="text-lg sm:text-xl md:text-2xl text-gray-200 max-w-2xl mb-10 font-light drop-shadow-md">
-              Premium residential plots just 0 KM from Dholera SIR boundary. Secure your future in Gujarat's fastest-growing smart city corridor.
-            </motion.p>
-            
-            <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4 w-full justify-center">
-              <a href="#invest" className="group relative inline-flex items-center justify-center px-8 py-4 bg-[#FACC15] text-black rounded-full font-bold text-lg transition-transform hover:scale-105 active:scale-95 shadow-xl hover:bg-yellow-500">
-                Invest Now
-                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </a>
-              <a href="#details" className="inline-flex items-center justify-center px-8 py-4 bg-white/10 backdrop-blur-md text-white border border-white/30 shadow-xl rounded-full font-medium text-lg hover:bg-white/20 transition-colors">
-                View Project Details
-              </a>
-            </motion.div>
-          </motion.div>
         </div>
       </section>
 
