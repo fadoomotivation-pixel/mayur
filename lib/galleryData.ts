@@ -14,12 +14,7 @@ export const galleryImages: GalleryImage[] = [
     title: 'Mirrikh Group Hero',
     category: 'investment'
   },
-  {
-    id: 2,
-    src: 'https://mirrikh.com/wp-content/uploads/2026/06/cropped-mg-favi-32x32.png',
-    title: 'Cropped Mg Favi 32x32',
-    category: 'investment'
-  },
+
   {
     id: 3,
     src: 'https://mirrikh.com/wp-content/uploads/2026/06/Web-Banner1.jpg.jpeg',
@@ -92,12 +87,7 @@ export const galleryImages: GalleryImage[] = [
     title: 'MIL By Mirrikh Group',
     category: 'projects'
   },
-  {
-    id: 15,
-    src: 'https://mirrikh.com/wp-content/uploads/2025/05/rajeel-jangir.jpg',
-    title: 'Rajeel Jangir',
-    category: 'investment'
-  },
+
   {
     id: 16,
     src: 'https://mirrikh.com/wp-content/uploads/2026/07/banner-Education-in-Dholera-Smart-City-1.jpg',
