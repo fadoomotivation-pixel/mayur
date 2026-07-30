@@ -3,33 +3,33 @@ import { site } from '@/lib/data';
 
 const galleryImages = [
   {
-    src: '/images/gallery/smart_city.jpg',
+    src: 'https://mirrikh.com/wp-content/uploads/2025/11/dsir-home-1.jpg',
     title: 'Dholera Smart City Infrastructure',
     description: 'India\'s first greenfield smart city taking shape with world-class underground utilities and wide roads.',
     span: 'col-span-1 md:col-span-2 row-span-2'
   },
   {
-    src: '/images/gallery/airport.jpg',
+    src: 'https://mirrikh.com/wp-content/uploads/2026/02/dholera-airport-2.jpg',
     title: 'Dholera International Airport',
     description: 'Upcoming massive international airport at Navagam, boosting global connectivity.',
     span: 'col-span-1 row-span-1'
   },
   {
-    src: '/images/gallery/expressway.jpg',
+    src: 'https://mirrikh.com/wp-content/uploads/2026/01/expressway-1.jpg',
     title: 'Ahmedabad-Dholera Expressway',
     description: '109 km long, 6-lane access-controlled expressway for seamless transport.',
     span: 'col-span-1 row-span-1'
   },
   {
-    src: '/images/gallery/solar_park.jpg',
-    title: '5000 MW Solar Park',
-    description: 'Asia\'s largest solar park powering the entire smart city sustainably.',
+    src: 'https://mirrikh.com/wp-content/uploads/2026/07/banner-CG-Semi-Dholera-1.jpg',
+    title: 'Tata Electronics Semiconductor Fab',
+    description: '₹91,000 Cr massive semiconductor manufacturing plant establishing Dholera as a global tech hub.',
     span: 'col-span-1 md:col-span-2 row-span-1'
   },
   {
-    src: '/images/gallery/villa.jpg',
-    title: 'Premium Living in Dholera',
-    description: 'Luxurious gated communities and villas offering a modern lifestyle.',
+    src: 'https://mirrikh.com/wp-content/uploads/2026/07/banner-Education-in-Dholera-Smart-City-1.jpg',
+    title: 'Education & Social Infrastructure',
+    description: 'Premium educational institutions and social infrastructure for a complete lifestyle.',
     span: 'col-span-1 md:col-span-2 row-span-2'
   }
 ];
@@ -64,6 +64,7 @@ export default function GalleryPage() {
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out"
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                unoptimized
               />
               <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
               
