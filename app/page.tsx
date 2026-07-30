@@ -68,7 +68,7 @@ export default function Home() {
       
       {/* Hero Section */}
       <section className="relative w-full pt-[70px] md:pt-20 bg-[#f9fafb]">
-        <div className="relative w-full aspect-[4/3] sm:aspect-[16/9] md:h-[85vh] z-0 overflow-hidden bg-black">
+        <div className="relative w-full aspect-[21/9] md:h-[85vh] z-0 overflow-hidden bg-[#f9fafb]">
           {heroImages.map((src, idx) => (
             <img 
               key={idx}
