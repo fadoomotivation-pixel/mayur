@@ -3,19 +3,19 @@ import { site } from '@/lib/data';
 
 const galleryImages = [
   {
-    src: 'https://mirrikh.com/wp-content/uploads/2025/11/dsir-home-1.jpg',
+    src: 'https://mirrikh.com/wp-content/uploads/2026/07/banner-Dholera-latest-update-2026-1.jpg',
     title: 'Dholera Smart City Infrastructure',
     description: 'India\'s first greenfield smart city taking shape with world-class underground utilities and wide roads.',
     span: 'col-span-1 md:col-span-2 row-span-2'
   },
   {
-    src: 'https://mirrikh.com/wp-content/uploads/2026/02/dholera-airport-2.jpg',
+    src: 'https://mirrikh.com/wp-content/uploads/2026/07/banner-TDholera-logistics-hub-1.jpg',
     title: 'Dholera International Airport',
     description: 'Upcoming massive international airport at Navagam, boosting global connectivity.',
     span: 'col-span-1 row-span-1'
   },
   {
-    src: 'https://mirrikh.com/wp-content/uploads/2026/01/expressway-1.jpg',
+    src: 'https://mirrikh.com/wp-content/uploads/2026/07/banner-real-estate-developers-in-Dholera-1.jpg',
     title: 'Ahmedabad-Dholera Expressway',
     description: '109 km long, 6-lane access-controlled expressway for seamless transport.',
     span: 'col-span-1 row-span-1'

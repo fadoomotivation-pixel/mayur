@@ -40,7 +40,7 @@ export default function Home() {
     "https://mirrikh.com/wp-content/uploads/2026/06/Web-Banner1.jpg.jpeg",
     "https://mirrikh.com/wp-content/uploads/2026/04/Mayur-Greenz-Courtyard-Web-Banner.jpg-1.jpeg",
     "https://mirrikh.com/wp-content/uploads/2026/06/banner-Mayur-Park-3-1.jpg",
-    "https://mirrikh.com/wp-content/uploads/2025/11/dsir-home-1.jpg"
+    "https://mirrikh.com/wp-content/uploads/2026/07/Mayur-NOVA-cover-banner-2.jpg"
   ];
 
   useEffect(() => {
