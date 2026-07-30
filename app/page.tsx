@@ -67,14 +67,14 @@ export default function Home() {
     <main className="min-h-screen bg-[#f9fafb] overflow-hidden selection:bg-[#000] selection:text-white">
       
       {/* Hero Section */}
-      <section className="relative h-[60vh] md:h-screen w-full flex items-center justify-center pt-20">
-        <div className="absolute inset-0 z-0">
+      <section className="relative w-full pt-[70px] md:pt-20 bg-[#f9fafb]">
+        <div className="relative w-full aspect-[4/3] sm:aspect-[16/9] md:h-[85vh] z-0 overflow-hidden bg-black">
           {heroImages.map((src, idx) => (
             <img 
               key={idx}
               src={src} 
               alt="Dholera Smart City Real Estate" 
-              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-[2000ms] ease-in-out ${idx === currentSlide ? 'opacity-100 scale-105' : 'opacity-0 scale-100'}`}
+              className={`absolute inset-0 w-full h-full object-contain md:object-cover transition-opacity duration-[2000ms] ease-in-out ${idx === currentSlide ? 'opacity-100 scale-100 md:scale-105' : 'opacity-0 scale-100'}`}
             />
           ))}
         </div>
