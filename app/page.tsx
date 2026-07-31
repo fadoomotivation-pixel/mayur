@@ -68,13 +68,13 @@ export default function Home() {
       
       {/* Hero Section */}
       <section className="relative w-full pt-[70px] md:pt-20 bg-[#f9fafb]">
-        <div className="relative w-full aspect-[21/9] md:h-[85vh] z-0 overflow-hidden bg-[#f9fafb]">
+        <div className="relative w-full aspect-[16/9] sm:aspect-[21/9] md:aspect-auto md:h-[85vh] z-0 overflow-hidden bg-[#f9fafb]">
           {heroImages.map((src, idx) => (
             <img 
               key={idx}
               src={src} 
               alt="Dholera Smart City Real Estate" 
-              className={`absolute inset-0 w-full h-full object-contain md:object-cover transition-opacity duration-[2000ms] ease-in-out ${idx === currentSlide ? 'opacity-100 scale-100 md:scale-105' : 'opacity-0 scale-100'}`}
+              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-[2000ms] ease-in-out ${idx === currentSlide ? 'opacity-100 scale-100 md:scale-105' : 'opacity-0 scale-100'}`}
             />
           ))}
         </div>
