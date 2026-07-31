@@ -19,7 +19,7 @@ export default function Header() {
     <header className="w-full font-sans sticky top-0 z-50 shadow-sm relative">
       {/* Top Bar - Hidden on mobile */}
       <div className="bg-black/95 backdrop-blur-md text-white text-[10px] md:text-xs h-8 hidden sm:flex items-center relative overflow-hidden">
-        <div className="absolute top-0 left-0 bottom-0 w-48 bg-[#FACC15]" style={{ clipPath: 'polygon(0 0, 100% 0, 90% 100%, 0% 100%)' }}></div>
+        <div className="absolute top-0 left-0 bottom-0 w-64 bg-[#FACC15]" style={{ clipPath: 'polygon(0 0, 100% 0, 90% 100%, 0% 100%)' }}></div>
         
         <div className="max-w-7xl mx-auto px-4 md:px-6 w-full flex justify-between items-center relative z-10">
           <div className="flex items-center gap-2 text-black font-medium">
