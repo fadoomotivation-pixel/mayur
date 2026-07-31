@@ -92,71 +92,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 2. ROI / INVESTMENT HIGHLIGHT */}
-      <section id="invest" className="py-20 sm:py-32 relative bg-[#f9fafb]">
-        <div className="max-w-7xl mx-auto px-6">
-          <motion.div 
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={stagger}
-            className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center"
-          >
-            <div>
-              <motion.h2 variants={fadeUp} className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-6 text-gray-900">
-                The Smart Investor's <br /><span className="text-blue-600">Choice.</span>
-              </motion.h2>
-              <motion.p variants={fadeUp} className="text-lg text-gray-600 mb-8 leading-relaxed">
-                Experience unparalleled growth with guaranteed returns. Capitalize on the massive infrastructure development of Dholera Smart City before prices surge.
-              </motion.p>
-              
-              <div className="space-y-4">
-                {[
-                  { icon: TrendingUp, title: "1% Monthly Return", desc: "Guaranteed for 36 Months" },
-                  { icon: ShieldCheck, title: "Invest ₹12 Lakhs", desc: "Secure a premium NA, NOC & Title Clear plot" },
-                  { icon: MapPin, title: "0 KM from Boundary", desc: "Prime strategic location" }
-                ].map((item, i) => (
-                  <motion.div key={i} variants={fadeUp} className="flex items-start gap-4 p-4 bg-white border border-gray-100 shadow-sm rounded-2xl">
-                    <div className="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center shrink-0">
-                      <item.icon className="w-6 h-6 text-blue-600" />
-                    </div>
-                    <div>
-                      <h4 className="text-lg font-semibold text-gray-900">{item.title}</h4>
-                      <p className="text-sm text-gray-500">{item.desc}</p>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-            
-            <motion.div variants={fadeUp} className="relative">
-              <div className="absolute inset-0 bg-blue-100 blur-3xl -z-10 rounded-full" />
-              <div className="bg-white p-6 sm:p-8 md:p-12 rounded-[2.5rem] shadow-xl border border-gray-100 relative overflow-hidden">
-                <div className="absolute top-0 right-0 p-8 opacity-[0.03]">
-                  <TrendingUp className="w-32 h-32" />
-                </div>
-                <p className="text-sm font-semibold tracking-widest text-blue-600 uppercase mb-4">Limited Time Offer</p>
-                <div className="flex items-baseline gap-2 mb-2 flex-wrap">
-                  <span className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tighter text-gray-900">₹9,750</span>
-                  <span className="text-xl text-gray-500">/ Sq. Yd.</span>
-                </div>
-                <p className="text-gray-500 mb-8 pb-8 border-b border-gray-100 text-sm sm:text-base">Starting price for premium plots ranging from 125.84 to 377.46 Sq. Yd.</p>
-                <ul className="space-y-4 mb-8">
-                  {['NA, NOC & Title Clear', 'Premium Gated Community', 'Immediate Registry Available'].map((feat, i) => (
-                    <li key={i} className="flex items-center gap-3 text-sm font-medium text-gray-700">
-                      <ShieldCheck className="w-5 h-5 text-blue-600" />
-                      {feat}
-                    </li>
-                  ))}
-                </ul>
-                <a href="#contact" className="block w-full py-4 text-center bg-gray-900 hover:bg-black text-white shadow-md font-semibold rounded-2xl transition-all hover:-translate-y-0.5">
-                  Claim This Offer
-                </a>
-              </div>
-            </motion.div>
-          </motion.div>
-        </div>
-      </section>
+
 
       {/* WHY DHOLERA */}
       <section id="dholera" className="py-20 sm:py-32 bg-white border-y border-gray-100">

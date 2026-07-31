@@ -98,19 +98,30 @@ export default function SmartInvestorChoice() {
           </motion.div>
         </div>
 
-        <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-10 text-gray-300">
-          <div className="flex items-center gap-2">
-            <ShieldCheck className="w-5 h-5 text-[#FACC15]" />
-            <span className="font-medium">NA, NOC & Title Clear</span>
+        <div className="flex flex-col items-center justify-center gap-8 mt-12">
+          <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-10 text-gray-300">
+            <div className="flex items-center gap-2">
+              <ShieldCheck className="w-5 h-5 text-[#FACC15]" />
+              <span className="font-medium">NA, NOC & Title Clear</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <CheckCircle2 className="w-5 h-5 text-[#FACC15]" />
+              <span className="font-medium">Premium Gated Community</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <CheckCircle2 className="w-5 h-5 text-[#FACC15]" />
+              <span className="font-medium">Immediate Registry Available</span>
+            </div>
           </div>
-          <div className="flex items-center gap-2">
-            <CheckCircle2 className="w-5 h-5 text-[#FACC15]" />
-            <span className="font-medium">Premium Gated Community</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <CheckCircle2 className="w-5 h-5 text-[#FACC15]" />
-            <span className="font-medium">Immediate Registry Available</span>
-          </div>
+          
+          <motion.a 
+            href="/contact-us"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="inline-block px-12 py-4 bg-[#FACC15] text-black font-bold text-lg rounded-full shadow-2xl shadow-[#FACC15]/20 hover:bg-yellow-500 transition-colors"
+          >
+            Claim This Offer
+          </motion.a>
         </div>
 
       </div>

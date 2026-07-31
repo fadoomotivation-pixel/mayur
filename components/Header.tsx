@@ -1,9 +1,10 @@
 "use client";
 
-import { Phone, Mail, Clock, ChevronDown, Menu, X } from "lucide-react";
+import { Phone, Mail, Clock, Menu, X, ChevronRight } from "lucide-react";
 import { useState } from "react";
 import Link from "next/link";
 import { site } from "@/lib/data";
+import { motion, AnimatePresence } from "framer-motion";
 
 // Custom SVG components for social icons
 const Facebook = ({ className }: { className?: string }) => <svg viewBox="0 0 24 24" fill="currentColor" stroke="none" className={className}><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>;
@@ -15,7 +16,7 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   
   return (
-    <header className="w-full font-sans sticky top-0 z-50 shadow-sm">
+    <header className="w-full font-sans sticky top-0 z-50 shadow-sm relative">
       {/* Top Bar - Hidden on mobile */}
       <div className="bg-black/95 backdrop-blur-md text-white text-[10px] md:text-xs h-8 hidden sm:flex items-center relative overflow-hidden">
         <div className="absolute top-0 left-0 bottom-0 w-48 bg-[#FACC15]" style={{ clipPath: 'polygon(0 0, 100% 0, 90% 100%, 0% 100%)' }}></div>
@@ -35,67 +36,112 @@ export default function Header() {
       </div>
 
       {/* Middle Bar & Nav Combined for smaller size on Mobile, separate on Desktop */}
-      <div className="bg-white/90 backdrop-blur-md">
-        <div className="max-w-7xl mx-auto px-4 md:px-6 py-2 md:py-3 flex justify-between items-center">
+      <div className="bg-white/95 backdrop-blur-md relative z-[60]">
+        <div className="max-w-7xl mx-auto px-4 md:px-6 py-3 flex justify-between items-center">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 shrink-0">
+          <Link href="/" onClick={() => setIsOpen(false)} className="flex items-center gap-2 shrink-0">
             <div className="w-8 h-8 md:w-10 md:h-10 bg-[#F87171] text-black font-bold rounded-full flex items-center justify-center text-xl md:text-2xl font-serif">
               d
             </div>
             <div>
               <div className="text-xl md:text-2xl font-bold tracking-widest leading-none text-black">DHOLERA</div>
-              <div className="text-sm md:text-md tracking-widest font-light text-black leading-tight">SMART CITY</div>
+              <div className="text-[10px] md:text-xs tracking-widest font-semibold text-gray-500 uppercase leading-tight mt-0.5">SMART CITY</div>
             </div>
           </Link>
 
           {/* Desktop Contact Info */}
           <div className="hidden lg:flex gap-6 items-center">
-            <div className="flex items-center gap-3 border-r border-gray-300 pr-6">
-              <div className="w-8 h-8 md:w-10 md:h-10 bg-gray-100 rounded-full flex items-center justify-center text-[#FACC15]">
+            <div className="flex items-center gap-3 border-r border-gray-200 pr-6">
+              <div className="w-8 h-8 md:w-10 md:h-10 bg-gray-50 rounded-full flex items-center justify-center text-[#FACC15] border border-gray-100">
                 <Phone className="w-4 h-4 md:w-5 md:h-5" />
               </div>
               <div>
-                <div className="text-gray-900 text-xs md:text-sm font-medium">Call Us Now</div>
-                <div className="text-[#FACC15] font-bold text-xs md:text-sm">+91 98999 74590</div>
+                <div className="text-gray-500 text-xs md:text-xs font-medium uppercase tracking-wider">Call Us Now</div>
+                <div className="text-black font-bold text-sm">+91 98999 74590</div>
               </div>
             </div>
             
             <div className="flex items-center gap-3">
-              <div className="w-8 h-8 md:w-10 md:h-10 bg-gray-100 rounded-full flex items-center justify-center text-[#FACC15]">
+              <div className="w-8 h-8 md:w-10 md:h-10 bg-gray-50 rounded-full flex items-center justify-center text-[#FACC15] border border-gray-100">
                 <Mail className="w-4 h-4 md:w-5 md:h-5" />
               </div>
               <div>
-                <div className="text-gray-900 text-xs md:text-sm font-medium">Send Email</div>
-                <div className="text-[#FACC15] font-bold text-xs md:text-sm">{site.email}</div>
+                <div className="text-gray-500 text-xs md:text-xs font-medium uppercase tracking-wider">Send Email</div>
+                <div className="text-black font-bold text-sm">{site.email}</div>
               </div>
             </div>
           </div>
 
-          <button className="md:hidden p-2 text-black" aria-label="Toggle menu" onClick={() => setIsOpen(!isOpen)}>
-            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          <button className="md:hidden p-2 text-black bg-gray-100 rounded-full hover:bg-gray-200 transition-colors" aria-label="Toggle menu" onClick={() => setIsOpen(!isOpen)}>
+            {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
         </div>
       </div>
 
-      {/* Nav Bar */}
-      <div className={`md:block bg-black/90 backdrop-blur-md text-white border-t border-gray-800 ${isOpen ? 'block' : 'hidden'}`}>
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between">
-          <nav className="flex flex-col md:flex-row w-full md:w-auto items-center gap-0 md:gap-8 px-4 md:px-6">
-            <Link href="/" onClick={() => setIsOpen(false)} className="hover:text-[#FACC15] py-3 md:py-3 text-sm font-medium w-full md:w-auto text-center border-b border-gray-800 md:border-none">Home</Link>
-            <Link href="/investment" onClick={() => setIsOpen(false)} className="hover:text-[#FACC15] py-3 md:py-3 text-sm font-medium w-full md:w-auto text-center border-b border-gray-800 md:border-none">Investment</Link>
-            <Link href="/projects" onClick={() => setIsOpen(false)} className="hover:text-[#FACC15] py-3 md:py-3 text-sm font-medium w-full md:w-auto text-center border-b border-gray-800 md:border-none">Projects</Link>
-            <Link href="/gallery" onClick={() => setIsOpen(false)} className="hover:text-[#FACC15] py-3 md:py-3 text-sm font-medium w-full md:w-auto text-center border-b border-gray-800 md:border-none">Gallery</Link>
-            <Link href="/contact-us" onClick={() => setIsOpen(false)} className="hover:text-[#FACC15] py-3 md:py-3 text-sm font-medium w-full md:w-auto text-center border-b border-gray-800 md:border-none">Contact</Link>
-            <Link href="/career" onClick={() => setIsOpen(false)} className="hover:text-[#FACC15] py-3 md:py-3 text-sm font-medium w-full md:w-auto text-center border-b border-gray-800 md:border-none">Careers</Link>
+      {/* Desktop Nav Bar */}
+      <div className="hidden md:block bg-black/95 backdrop-blur-md text-white border-t border-gray-800">
+        <div className="max-w-7xl mx-auto flex items-center justify-between">
+          <nav className="flex items-center gap-8 px-6">
+            <Link href="/" className="hover:text-[#FACC15] py-3 text-sm font-medium transition-colors">Home</Link>
+            <Link href="/investment" className="hover:text-[#FACC15] py-3 text-sm font-medium transition-colors">Investment</Link>
+            <Link href="/projects" className="hover:text-[#FACC15] py-3 text-sm font-medium transition-colors">Projects</Link>
+            <Link href="/gallery" className="hover:text-[#FACC15] py-3 text-sm font-medium transition-colors">Gallery</Link>
+            <Link href="/contact-us" className="hover:text-[#FACC15] py-3 text-sm font-medium transition-colors">Contact</Link>
+            <Link href="/career" className="hover:text-[#FACC15] py-3 text-sm font-medium transition-colors">Careers</Link>
           </nav>
 
-          <div className="hidden md:block">
-            <Link href="/contact-us" className="bg-[#FACC15] text-black font-semibold px-6 py-3 flex items-center h-full hover:bg-yellow-500 transition-colors text-sm">
+          <div>
+            <Link href="/contact-us" className="bg-[#FACC15] text-black font-bold px-8 py-3 flex items-center h-full hover:bg-yellow-500 transition-colors text-sm tracking-wide">
               Get A Quote
             </Link>
           </div>
         </div>
       </div>
+
+      {/* Mobile Nav Overlay (Animated) */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div 
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.2 }}
+            className="md:hidden absolute top-full left-0 right-0 bg-white/95 backdrop-blur-xl shadow-2xl border-t border-gray-100 z-50 overflow-hidden"
+          >
+            <nav className="flex flex-col p-4">
+              {[
+                { name: 'Home', path: '/' },
+                { name: 'Investment', path: '/investment' },
+                { name: 'Projects', path: '/projects' },
+                { name: 'Gallery', path: '/gallery' },
+                { name: 'Contact', path: '/contact-us' },
+                { name: 'Careers', path: '/career' }
+              ].map((link) => (
+                <Link 
+                  key={link.name}
+                  href={link.path} 
+                  onClick={() => setIsOpen(false)} 
+                  className="flex items-center justify-between py-4 px-4 text-gray-900 font-medium hover:bg-gray-50 rounded-xl transition-colors border-b border-gray-100 last:border-0"
+                >
+                  {link.name}
+                  <ChevronRight className="w-4 h-4 text-gray-400" />
+                </Link>
+              ))}
+              
+              <div className="mt-4 p-4 bg-gray-50 rounded-2xl border border-gray-100">
+                <p className="text-xs text-gray-500 font-medium uppercase tracking-wider mb-2">Ready to Invest?</p>
+                <Link 
+                  href="/contact-us" 
+                  onClick={() => setIsOpen(false)}
+                  className="w-full bg-[#FACC15] text-black font-bold py-3 rounded-xl flex items-center justify-center gap-2 hover:bg-yellow-500 transition-colors shadow-sm"
+                >
+                  Get A Quote
+                </Link>
+              </div>
+            </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 }
