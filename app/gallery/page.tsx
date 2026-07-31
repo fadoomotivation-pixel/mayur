@@ -2,8 +2,6 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import { galleryImages, GalleryCategory } from "@/lib/galleryData";
 
 const categories: { label: string; value: GalleryCategory }[] = [
@@ -22,8 +20,6 @@ export default function GalleryPage() {
 
   return (
     <main className="min-h-screen bg-[#f9fafb] selection:bg-[#000] selection:text-white">
-      <Header />
-      
       {/* Hero Section */}
       <section className="relative pt-32 pb-16 md:pt-40 md:pb-24 bg-[#0a192f] text-white overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-blue-900/50 to-black/50 z-0" />
@@ -122,7 +118,6 @@ export default function GalleryPage() {
         </div>
       </section>
 
-      <Footer />
     </main>
   );
 }

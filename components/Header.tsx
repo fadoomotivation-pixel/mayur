@@ -15,83 +15,82 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   
   return (
-    <header className="w-full font-sans">
-      {/* Top Bar - Yellow/Black split */}
-      <div className="bg-black text-white text-xs h-10 hidden sm:flex items-center relative overflow-hidden">
-        {/* Yellow slanted background for the left side */}
-        <div className="absolute top-0 left-0 bottom-0 w-64 bg-[#FACC15]" style={{ clipPath: 'polygon(0 0, 100% 0, 90% 100%, 0% 100%)' }}></div>
+    <header className="w-full font-sans sticky top-0 z-50 shadow-sm">
+      {/* Top Bar - Hidden on mobile */}
+      <div className="bg-black/95 backdrop-blur-md text-white text-[10px] md:text-xs h-8 hidden sm:flex items-center relative overflow-hidden">
+        <div className="absolute top-0 left-0 bottom-0 w-48 bg-[#FACC15]" style={{ clipPath: 'polygon(0 0, 100% 0, 90% 100%, 0% 100%)' }}></div>
         
-        <div className="max-w-7xl mx-auto px-6 w-full flex justify-between items-center relative z-10">
+        <div className="max-w-7xl mx-auto px-4 md:px-6 w-full flex justify-between items-center relative z-10">
           <div className="flex items-center gap-2 text-black font-medium">
-            <Clock className="w-4 h-4" />
+            <Clock className="w-3 h-3 md:w-4 md:h-4" />
             <span>Mon-Sun : 9.00 AM - 5.00 PM</span>
           </div>
-          <div className="flex items-center gap-4">
-            <a href="#" className="hover:text-[#FACC15] transition-colors"><Facebook className="w-4 h-4 fill-current" /></a>
-            <a href="#" className="hover:text-[#FACC15] transition-colors"><Twitter className="w-4 h-4 fill-current" /></a>
-            <a href="#" className="hover:text-[#FACC15] transition-colors"><Instagram className="w-4 h-4" /></a>
-            <a href="#" className="hover:text-[#FACC15] transition-colors"><Pinterest className="w-4 h-4 fill-current" /></a>
+          <div className="flex items-center gap-3">
+            <a href="#" className="hover:text-[#FACC15] transition-colors"><Facebook className="w-3 h-3 md:w-4 md:h-4 fill-current" /></a>
+            <a href="#" className="hover:text-[#FACC15] transition-colors"><Twitter className="w-3 h-3 md:w-4 md:h-4 fill-current" /></a>
+            <a href="#" className="hover:text-[#FACC15] transition-colors"><Instagram className="w-3 h-3 md:w-4 md:h-4" /></a>
+            <a href="#" className="hover:text-[#FACC15] transition-colors"><Pinterest className="w-3 h-3 md:w-4 md:h-4 fill-current" /></a>
           </div>
         </div>
       </div>
 
-      {/* Middle Bar - Logo and Contact Info */}
-      <div className="bg-white">
-        <div className="max-w-7xl mx-auto px-6 py-4 md:py-6 flex flex-col md:flex-row justify-between items-center gap-4 md:gap-6">
+      {/* Middle Bar & Nav Combined for smaller size on Mobile, separate on Desktop */}
+      <div className="bg-white/90 backdrop-blur-md">
+        <div className="max-w-7xl mx-auto px-4 md:px-6 py-2 md:py-3 flex justify-between items-center">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 shrink-0">
-            <div className="w-10 h-10 md:w-12 md:h-12 bg-[#F87171] text-black font-bold rounded-full flex items-center justify-center text-2xl md:text-3xl font-serif">
+            <div className="w-8 h-8 md:w-10 md:h-10 bg-[#F87171] text-black font-bold rounded-full flex items-center justify-center text-xl md:text-2xl font-serif">
               d
             </div>
             <div>
-              <div className="text-2xl md:text-3xl font-bold tracking-widest leading-none text-black">DHOLERA</div>
-              <div className="text-lg md:text-xl tracking-widest font-light text-black">SMART CITY</div>
+              <div className="text-xl md:text-2xl font-bold tracking-widest leading-none text-black">DHOLERA</div>
+              <div className="text-sm md:text-md tracking-widest font-light text-black leading-tight">SMART CITY</div>
             </div>
           </Link>
 
-          <div className="hidden md:flex flex-col sm:flex-row gap-8 items-center border border-gray-100 p-2 pr-6">
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 border border-gray-200 flex items-center justify-center text-[#FACC15]">
-                <Phone className="w-6 h-6" />
+          {/* Desktop Contact Info */}
+          <div className="hidden lg:flex gap-6 items-center">
+            <div className="flex items-center gap-3 border-r border-gray-300 pr-6">
+              <div className="w-8 h-8 md:w-10 md:h-10 bg-gray-100 rounded-full flex items-center justify-center text-[#FACC15]">
+                <Phone className="w-4 h-4 md:w-5 md:h-5" />
               </div>
               <div>
-                <div className="text-gray-900 font-medium">Have Any Question</div>
-                <div className="text-[#FACC15] font-semibold text-sm">(+91) 98999 74590 / 70423 67340</div>
+                <div className="text-gray-900 text-xs md:text-sm font-medium">Call Us Now</div>
+                <div className="text-[#FACC15] font-bold text-xs md:text-sm">+91 98999 74590</div>
               </div>
             </div>
             
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 border border-gray-200 flex items-center justify-center text-[#FACC15]">
-                <Mail className="w-6 h-6" />
+            <div className="flex items-center gap-3">
+              <div className="w-8 h-8 md:w-10 md:h-10 bg-gray-100 rounded-full flex items-center justify-center text-[#FACC15]">
+                <Mail className="w-4 h-4 md:w-5 md:h-5" />
               </div>
               <div>
-                <div className="text-gray-900 font-medium">Send Your Mail</div>
-                <div className="text-[#FACC15] font-semibold">{site.email}</div>
+                <div className="text-gray-900 text-xs md:text-sm font-medium">Send Email</div>
+                <div className="text-[#FACC15] font-bold text-xs md:text-sm">{site.email}</div>
               </div>
             </div>
           </div>
+
+          <button className="md:hidden p-2 text-black" aria-label="Toggle menu" onClick={() => setIsOpen(!isOpen)}>
+            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
         </div>
       </div>
 
       {/* Nav Bar */}
-      <div className="bg-black text-white relative">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
-          
-          <button className="md:hidden p-4" aria-label="Toggle menu" onClick={() => setIsOpen(!isOpen)}>
-            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
-
-          <nav className={`md:flex items-center gap-8 px-6 ${isOpen ? 'flex flex-col absolute top-full left-0 right-0 bg-black py-4 z-50' : 'hidden'}`}>
-            <Link href="/" onClick={() => setIsOpen(false)} className="hover:text-[#FACC15] py-4 text-sm font-medium">Home</Link>
-            <Link href="/investment" onClick={() => setIsOpen(false)} className="hover:text-[#FACC15] py-4 text-sm font-medium">Investment</Link>
-            <Link href="/projects" onClick={() => setIsOpen(false)} className="hover:text-[#FACC15] py-4 text-sm font-medium">Projects</Link>
-            <Link href="/gallery" onClick={() => setIsOpen(false)} className="hover:text-[#FACC15] py-4 text-sm font-medium text-[#FACC15]">Gallery</Link>
-            <Link href="/contact-us" onClick={() => setIsOpen(false)} className="hover:text-[#FACC15] py-4 text-sm font-medium">Contact</Link>
-            <Link href="/career" onClick={() => setIsOpen(false)} className="hover:text-[#FACC15] py-4 text-sm font-medium">Careers</Link>
+      <div className={`md:block bg-black/90 backdrop-blur-md text-white border-t border-gray-800 ${isOpen ? 'block' : 'hidden'}`}>
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between">
+          <nav className="flex flex-col md:flex-row w-full md:w-auto items-center gap-0 md:gap-8 px-4 md:px-6">
+            <Link href="/" onClick={() => setIsOpen(false)} className="hover:text-[#FACC15] py-3 md:py-3 text-sm font-medium w-full md:w-auto text-center border-b border-gray-800 md:border-none">Home</Link>
+            <Link href="/investment" onClick={() => setIsOpen(false)} className="hover:text-[#FACC15] py-3 md:py-3 text-sm font-medium w-full md:w-auto text-center border-b border-gray-800 md:border-none">Investment</Link>
+            <Link href="/projects" onClick={() => setIsOpen(false)} className="hover:text-[#FACC15] py-3 md:py-3 text-sm font-medium w-full md:w-auto text-center border-b border-gray-800 md:border-none">Projects</Link>
+            <Link href="/gallery" onClick={() => setIsOpen(false)} className="hover:text-[#FACC15] py-3 md:py-3 text-sm font-medium w-full md:w-auto text-center border-b border-gray-800 md:border-none">Gallery</Link>
+            <Link href="/contact-us" onClick={() => setIsOpen(false)} className="hover:text-[#FACC15] py-3 md:py-3 text-sm font-medium w-full md:w-auto text-center border-b border-gray-800 md:border-none">Contact</Link>
+            <Link href="/career" onClick={() => setIsOpen(false)} className="hover:text-[#FACC15] py-3 md:py-3 text-sm font-medium w-full md:w-auto text-center border-b border-gray-800 md:border-none">Careers</Link>
           </nav>
 
           <div className="hidden md:block">
-            <Link href="/contact-us" className="bg-[#FACC15] text-black font-semibold px-8 py-5 flex items-center h-full hover:bg-yellow-500 transition-colors whitespace-nowrap">
+            <Link href="/contact-us" className="bg-[#FACC15] text-black font-semibold px-6 py-3 flex items-center h-full hover:bg-yellow-500 transition-colors text-sm">
               Get A Quote
             </Link>
           </div>
