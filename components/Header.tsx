@@ -40,120 +40,192 @@ export default function Header() {
         <div className="max-w-7xl mx-auto px-4 md:px-6 py-3 flex justify-between items-center">
           {/* Animated Logo */}
           <Link href="/" onClick={() => setIsOpen(false)} className="flex items-center gap-2.5 shrink-0 group">
-            {/* Animated Smart City Icon */}
+            {/* Premium Animated Smart City Icon */}
             <motion.div 
-              className="relative w-10 h-10 md:w-12 md:h-12 flex items-center justify-center"
-              whileHover={{ scale: 1.08 }}
-              transition={{ type: "spring", stiffness: 400, damping: 15 }}
+              className="relative w-11 h-11 md:w-[52px] md:h-[52px] flex items-center justify-center"
+              whileHover={{ scale: 1.05, rotate: [0, -2, 2, 0] }}
+              transition={{ type: "spring", stiffness: 300, damping: 12 }}
             >
-              <svg viewBox="0 0 48 48" className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-                {/* Background gradient shape */}
+              <svg viewBox="0 0 56 56" className="w-full h-full drop-shadow-lg" xmlns="http://www.w3.org/2000/svg">
                 <defs>
-                  <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#1e3a5f" />
-                    <stop offset="50%" stopColor="#0d2137" />
-                    <stop offset="100%" stopColor="#0a1628" />
+                  {/* Premium dark gradient */}
+                  <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#0f2027" />
+                    <stop offset="40%" stopColor="#142a3a" />
+                    <stop offset="100%" stopColor="#0a1520" />
                   </linearGradient>
-                  <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stopColor="#FACC15" />
-                    <stop offset="50%" stopColor="#FDE68A" />
-                    <stop offset="100%" stopColor="#FACC15" />
+                  {/* Rich gold */}
+                  <linearGradient id="goldPremium" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#d4a017" />
+                    <stop offset="30%" stopColor="#FACC15" />
+                    <stop offset="60%" stopColor="#FDE68A" />
+                    <stop offset="100%" stopColor="#d4a017" />
                   </linearGradient>
-                  <linearGradient id="skyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                    <stop offset="0%" stopColor="#FACC15" stopOpacity="0.6" />
+                  {/* Sunrise glow */}
+                  <radialGradient id="sunGlow" cx="50%" cy="72%" r="45%">
+                    <stop offset="0%" stopColor="#FACC15" stopOpacity="0.5" />
+                    <stop offset="40%" stopColor="#FACC15" stopOpacity="0.15" />
                     <stop offset="100%" stopColor="#FACC15" stopOpacity="0" />
+                  </radialGradient>
+                  {/* Building glass reflection */}
+                  <linearGradient id="glassGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#FACC15" />
+                    <stop offset="50%" stopColor="#FEF3C7" />
+                    <stop offset="100%" stopColor="#d4a017" />
                   </linearGradient>
-                  <filter id="glow">
-                    <feGaussianBlur stdDeviation="1" result="blur" />
+                  {/* Soft glow filter */}
+                  <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+                    <feGaussianBlur stdDeviation="0.8" result="blur" />
                     <feMerge>
                       <feMergeNode in="blur" />
                       <feMergeNode in="SourceGraphic" />
                     </feMerge>
                   </filter>
+                  {/* Strong glow for sun */}
+                  <filter id="sunFilter" x="-50%" y="-50%" width="200%" height="200%">
+                    <feGaussianBlur stdDeviation="2" result="blur" />
+                    <feMerge>
+                      <feMergeNode in="blur" />
+                      <feMergeNode in="SourceGraphic" />
+                    </feMerge>
+                  </filter>
+                  {/* Clip for shield shape */}
+                  <clipPath id="shieldClip">
+                    <path d="M28 3 L50 12 L50 32 Q50 46 28 54 Q6 46 6 32 L6 12 Z" />
+                  </clipPath>
                 </defs>
 
-                {/* Hexagonal background */}
+                {/* Shield shape — draws in */}
                 <motion.path 
-                  d="M24 2 L44 14 L44 34 L24 46 L4 34 L4 14 Z"
-                  fill="url(#logoGrad)"
-                  stroke="url(#goldGrad)"
-                  strokeWidth="1.5"
+                  d="M28 3 L50 12 L50 32 Q50 46 28 54 Q6 46 6 32 L6 12 Z"
+                  fill="url(#shieldGrad)"
+                  stroke="url(#goldPremium)"
+                  strokeWidth="1.8"
                   initial={{ pathLength: 0, opacity: 0 }}
                   animate={{ pathLength: 1, opacity: 1 }}
-                  transition={{ duration: 1.2, ease: "easeInOut" }}
+                  transition={{ duration: 1.4, ease: "easeInOut" }}
                 />
-                
-                {/* City skyline - buildings */}
-                <motion.g filter="url(#glow)">
-                  {/* Tall center tower */}
-                  <motion.rect x="21" y="14" width="6" height="20" rx="1" fill="url(#goldGrad)"
-                    initial={{ scaleY: 0, originY: "100%" }} 
-                    animate={{ scaleY: 1 }} 
-                    transition={{ delay: 0.6, duration: 0.5, ease: "easeOut" }}
-                    style={{ transformOrigin: "50% 100%", transformBox: "fill-box" }}
+
+                {/* Inner shield border — luxury double-line effect */}
+                <motion.path 
+                  d="M28 6 L48 14 L48 31 Q48 44 28 51 Q8 44 8 31 L8 14 Z"
+                  fill="none"
+                  stroke="#FACC15"
+                  strokeWidth="0.3"
+                  opacity="0.3"
+                  initial={{ pathLength: 0 }}
+                  animate={{ pathLength: 1 }}
+                  transition={{ delay: 0.8, duration: 1, ease: "easeInOut" }}
+                />
+
+                {/* Clipped content inside shield */}
+                <g clipPath="url(#shieldClip)">
+                  {/* Sunrise glow behind city */}
+                  <motion.circle cx="28" cy="38" r="18" fill="url(#sunGlow)"
+                    initial={{ r: 0, opacity: 0 }}
+                    animate={{ r: 18, opacity: 1 }}
+                    transition={{ delay: 0.6, duration: 0.8 }}
                   />
-                  {/* Tower antenna */}
-                  <motion.line x1="24" y1="10" x2="24" y2="14" stroke="#FACC15" strokeWidth="1.5" strokeLinecap="round"
+
+                  {/* Sunrise arc */}
+                  <motion.path d="M10 38 Q28 22 46 38" fill="none" stroke="#FACC15" strokeWidth="0.6" opacity="0.4"
+                    initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ delay: 0.8, duration: 0.6 }}
+                  />
+                  <motion.path d="M12 38 Q28 26 44 38" fill="none" stroke="#FACC15" strokeWidth="0.4" opacity="0.25"
+                    initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ delay: 1, duration: 0.5 }}
+                  />
+
+                  {/* === CITY SKYLINE — forms a "D" silhouette === */}
+                  <motion.g filter="url(#softGlow)">
+                    {/* Left curved edge of "D" — tall building with rounded top */}
+                    <motion.path d="M16 38 L16 18 Q16 13 20 13 L20 38 Z" fill="url(#glassGrad)" opacity="0.95"
+                      initial={{ scaleY: 0 }} animate={{ scaleY: 1 }} transition={{ delay: 0.5, duration: 0.5, ease: "easeOut" }}
+                      style={{ transformOrigin: "50% 100%", transformBox: "fill-box" }}
+                    />
+
+                    {/* Center-left tower (tallest — iconic Dholera admin tower) */}
+                    <motion.g initial={{ scaleY: 0 }} animate={{ scaleY: 1 }} transition={{ delay: 0.6, duration: 0.55, ease: "easeOut" }}
+                      style={{ transformOrigin: "50% 100%", transformBox: "fill-box" }}>
+                      <rect x="21" y="15" width="5" height="23" rx="0.5" fill="url(#goldPremium)" opacity="0.9" />
+                      {/* Crown/top detail */}
+                      <rect x="22" y="13" width="3" height="2" rx="0.3" fill="#FDE68A" opacity="0.8" />
+                    </motion.g>
+
+                    {/* Center-right tower */}
+                    <motion.rect x="27" y="20" width="4.5" height="18" rx="0.5" fill="#FACC15" opacity="0.8"
+                      initial={{ scaleY: 0 }} animate={{ scaleY: 1 }} transition={{ delay: 0.7, duration: 0.45, ease: "easeOut" }}
+                      style={{ transformOrigin: "50% 100%", transformBox: "fill-box" }}
+                    />
+
+                    {/* Right curve of "D" — stepped buildings curving inward */}
+                    <motion.rect x="32" y="22" width="4" height="16" rx="0.5" fill="url(#glassGrad)" opacity="0.75"
+                      initial={{ scaleY: 0 }} animate={{ scaleY: 1 }} transition={{ delay: 0.75, duration: 0.4, ease: "easeOut" }}
+                      style={{ transformOrigin: "50% 100%", transformBox: "fill-box" }}
+                    />
+                    <motion.rect x="36.5" y="26" width="3.5" height="12" rx="0.5" fill="#FACC15" opacity="0.65"
+                      initial={{ scaleY: 0 }} animate={{ scaleY: 1 }} transition={{ delay: 0.85, duration: 0.4, ease: "easeOut" }}
+                      style={{ transformOrigin: "50% 100%", transformBox: "fill-box" }}
+                    />
+
+                    {/* Solar panel array on right building (Dholera is solar city) */}
+                    <motion.g initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.4, duration: 0.4 }}>
+                      <line x1="33" y1="23" x2="35" y2="22" stroke="#FDE68A" strokeWidth="0.5" opacity="0.6" />
+                      <line x1="33" y1="24.5" x2="35" y2="23.5" stroke="#FDE68A" strokeWidth="0.5" opacity="0.5" />
+                      <line x1="33" y1="26" x2="35" y2="25" stroke="#FDE68A" strokeWidth="0.5" opacity="0.4" />
+                    </motion.g>
+                  </motion.g>
+
+                  {/* Communication antenna on tallest tower */}
+                  <motion.line x1="23.5" y1="9" x2="23.5" y2="13" stroke="#FDE68A" strokeWidth="1" strokeLinecap="round"
                     initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ delay: 1.1, duration: 0.3 }}
                   />
-                  {/* Antenna signal arcs */}
-                  <motion.path d="M20 12 Q24 8 28 12" fill="none" stroke="#FACC15" strokeWidth="0.8" opacity="0.6"
+                  {/* Signal arcs — smart connectivity */}
+                  <motion.path d="M20 11 Q23.5 7 27 11" fill="none" stroke="#FACC15" strokeWidth="0.7" opacity="0.5"
                     initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ delay: 1.4, duration: 0.4 }}
                   />
-                  <motion.path d="M18 13 Q24 7 30 13" fill="none" stroke="#FACC15" strokeWidth="0.6" opacity="0.3"
+                  <motion.path d="M18.5 12.5 Q23.5 6 28.5 12.5" fill="none" stroke="#FACC15" strokeWidth="0.5" opacity="0.3"
                     initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ delay: 1.6, duration: 0.4 }}
                   />
 
-                  {/* Left building 1 */}
-                  <motion.rect x="10" y="22" width="5" height="12" rx="0.5" fill="#FACC15" opacity="0.85"
-                    initial={{ scaleY: 0 }} animate={{ scaleY: 1 }} transition={{ delay: 0.8, duration: 0.4, ease: "easeOut" }}
-                    style={{ transformOrigin: "50% 100%", transformBox: "fill-box" }}
+                  {/* Ground / Highway — perspective road converging to city */}
+                  <motion.path d="M6 48 L22 38 L34 38 L50 48" fill="none" stroke="#FACC15" strokeWidth="0.8" opacity="0.5"
+                    initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ delay: 0.4, duration: 0.7 }}
                   />
-                  {/* Left building 2 */}
-                  <motion.rect x="16" y="19" width="4" height="15" rx="0.5" fill="#FACC15" opacity="0.7"
-                    initial={{ scaleY: 0 }} animate={{ scaleY: 1 }} transition={{ delay: 0.7, duration: 0.45, ease: "easeOut" }}
-                    style={{ transformOrigin: "50% 100%", transformBox: "fill-box" }}
+                  {/* Center road line */}
+                  <motion.line x1="28" y1="38" x2="28" y2="46" stroke="#FDE68A" strokeWidth="0.5" strokeDasharray="1.5 1" opacity="0.4"
+                    initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ delay: 0.9, duration: 0.5 }}
                   />
-                  {/* Right building 1 */}
-                  <motion.rect x="28" y="20" width="4" height="14" rx="0.5" fill="#FACC15" opacity="0.7"
-                    initial={{ scaleY: 0 }} animate={{ scaleY: 1 }} transition={{ delay: 0.75, duration: 0.45, ease: "easeOut" }}
-                    style={{ transformOrigin: "50% 100%", transformBox: "fill-box" }}
-                  />
-                  {/* Right building 2 */}
-                  <motion.rect x="33" y="24" width="5" height="10" rx="0.5" fill="#FACC15" opacity="0.85"
-                    initial={{ scaleY: 0 }} animate={{ scaleY: 1 }} transition={{ delay: 0.85, duration: 0.4, ease: "easeOut" }}
-                    style={{ transformOrigin: "50% 100%", transformBox: "fill-box" }}
-                  />
-                </motion.g>
 
-                {/* Ground line */}
-                <motion.line x1="8" y1="34" x2="40" y2="34" stroke="#FACC15" strokeWidth="1" strokeLinecap="round"
-                  initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ delay: 0.5, duration: 0.6 }}
-                />
+                  {/* Twinkling windows */}
+                  <motion.g initial={{ opacity: 0 }} animate={{ opacity: [0, 1, 0.5, 1] }} transition={{ delay: 1.5, duration: 2, repeat: Infinity, repeatType: "reverse" }}>
+                    <circle cx="18" cy="21" r="0.5" fill="white" opacity="0.9" />
+                    <circle cx="18" cy="25" r="0.5" fill="white" opacity="0.7" />
+                    <circle cx="18" cy="29" r="0.5" fill="white" opacity="0.6" />
+                    <circle cx="18" cy="33" r="0.5" fill="white" opacity="0.8" />
+                    <circle cx="23" cy="18" r="0.5" fill="white" opacity="0.85" />
+                    <circle cx="23" cy="22" r="0.5" fill="white" opacity="0.7" />
+                    <circle cx="23" cy="26" r="0.5" fill="white" opacity="0.9" />
+                    <circle cx="23" cy="30" r="0.5" fill="white" opacity="0.6" />
+                    <circle cx="23" cy="34" r="0.5" fill="white" opacity="0.75" />
+                    <circle cx="29" cy="24" r="0.5" fill="white" opacity="0.8" />
+                    <circle cx="29" cy="28" r="0.5" fill="white" opacity="0.65" />
+                    <circle cx="29" cy="32" r="0.5" fill="white" opacity="0.9" />
+                    <circle cx="34" cy="26" r="0.5" fill="white" opacity="0.7" />
+                    <circle cx="34" cy="30" r="0.5" fill="white" opacity="0.85" />
+                    <circle cx="34" cy="34" r="0.5" fill="white" opacity="0.6" />
+                    <circle cx="38" cy="30" r="0.5" fill="white" opacity="0.75" />
+                    <circle cx="38" cy="34" r="0.5" fill="white" opacity="0.9" />
+                  </motion.g>
+                </g>
 
-                {/* Glowing dots on buildings (windows) */}
-                <motion.g initial={{ opacity: 0 }} animate={{ opacity: [0, 1, 0.6, 1] }} transition={{ delay: 1.3, duration: 1.5, repeat: Infinity, repeatType: "reverse" }}>
-                  <circle cx="12" cy="26" r="0.6" fill="white" opacity="0.9" />
-                  <circle cx="12" cy="29" r="0.6" fill="white" opacity="0.7" />
-                  <circle cx="23" cy="20" r="0.6" fill="white" opacity="0.9" />
-                  <circle cx="25" cy="23" r="0.6" fill="white" opacity="0.7" />
-                  <circle cx="23" cy="26" r="0.6" fill="white" opacity="0.8" />
-                  <circle cx="25" cy="29" r="0.6" fill="white" opacity="0.6" />
-                  <circle cx="30" cy="24" r="0.6" fill="white" opacity="0.8" />
-                  <circle cx="30" cy="27" r="0.6" fill="white" opacity="0.7" />
-                  <circle cx="35" cy="28" r="0.6" fill="white" opacity="0.9" />
-                  <circle cx="35" cy="31" r="0.6" fill="white" opacity="0.6" />
-                </motion.g>
-
-                {/* Orbiting particle */}
-                <motion.circle cx="24" cy="4" r="1.2" fill="#FACC15"
+                {/* Orbiting golden particle — slow and elegant */}
+                <motion.circle r="1" fill="#FACC15" filter="url(#sunFilter)"
                   animate={{ 
-                    cx: [24, 42, 24, 6, 24],
-                    cy: [4, 24, 44, 24, 4],
-                    opacity: [0.8, 0.4, 0.8, 0.4, 0.8],
-                    r: [1.2, 0.8, 1.2, 0.8, 1.2]
+                    cx: [28, 50, 28, 6, 28],
+                    cy: [2, 28, 54, 28, 2],
+                    opacity: [0.9, 0.3, 0.9, 0.3, 0.9],
                   }}
-                  transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+                  transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
                 />
               </svg>
             </motion.div>
