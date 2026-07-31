@@ -35,8 +35,32 @@ const iconMap: Record<string, any> = {
 export default function Home() {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [status, setStatus] = useState("");
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setStatus("submitting");
+    const formData = new FormData(e.currentTarget);
+    formData.append("access_key", "YOUR_WEB3FORMS_ACCESS_KEY"); // Replace with Web3Forms Access Key
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      });
+      if (response.ok) {
+        setStatus("success");
+        (e.target as HTMLFormElement).reset();
+      } else {
+        setStatus("error");
+      }
+    } catch (err) {
+      setStatus("error");
+    }
+  };
 
   const heroImages = [
+    "/hero-new-admin.png",
     "https://mirrikh.com/wp-content/uploads/2026/06/Web-Banner1.jpg.jpeg",
     "https://mirrikh.com/wp-content/uploads/2026/04/Mayur-Greenz-Courtyard-Web-Banner.jpg-1.jpeg",
     "https://mirrikh.com/wp-content/uploads/2026/06/banner-Mayur-Park-3-1.jpg",
@@ -285,21 +309,34 @@ export default function Home() {
               <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold tracking-tight mb-4 text-gray-900">Secure your piece of the future.</h2>
               <p className="text-gray-600 mb-10 max-w-xl mx-auto text-base sm:text-lg">Leave your details and our investment experts will contact you with the complete project brochure and pricing.</p>
               
-              <form className="max-w-md mx-auto space-y-4" onSubmit={(e) => e.preventDefault()}>
-                <input 
-                  type="text" 
-                  placeholder="Full Name" 
-                  className="w-full px-6 py-4 rounded-xl bg-white border border-gray-200 text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition-all shadow-sm"
-                />
-                <input 
-                  type="tel" 
-                  placeholder="Phone Number" 
-                  className="w-full px-6 py-4 rounded-xl bg-white border border-gray-200 text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition-all shadow-sm"
-                />
-                <button type="submit" className="w-full py-4 bg-gray-900 text-white font-semibold rounded-xl hover:bg-black hover:shadow-lg transition-all hover:-translate-y-0.5">
-                  Request Callback
-                </button>
-              </form>
+              {status === "success" ? (
+                <div className="bg-green-50 text-green-700 p-8 rounded-2xl border border-green-200 text-center max-w-md mx-auto mb-6">
+                  <h4 className="text-xl font-bold mb-2">Message Sent!</h4>
+                  <p>Thank you for reaching out. Our team will contact you shortly with the project brochure.</p>
+                  <button onClick={() => setStatus("")} className="mt-4 font-semibold underline">Send another message</button>
+                </div>
+              ) : (
+                <form className="max-w-md mx-auto space-y-4" onSubmit={handleSubmit}>
+                  <input 
+                    type="text" 
+                    name="name"
+                    required
+                    placeholder="Full Name" 
+                    className="w-full px-6 py-4 rounded-xl bg-white border border-gray-200 text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition-all shadow-sm"
+                  />
+                  <input 
+                    type="tel" 
+                    name="phone"
+                    required
+                    placeholder="Phone Number" 
+                    className="w-full px-6 py-4 rounded-xl bg-white border border-gray-200 text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition-all shadow-sm"
+                  />
+                  {status === "error" && <p className="text-red-500 text-sm">Something went wrong. Please try again.</p>}
+                  <button disabled={status === "submitting"} type="submit" className="w-full py-4 bg-gray-900 text-white font-semibold rounded-xl hover:bg-black hover:shadow-lg transition-all hover:-translate-y-0.5 disabled:opacity-70">
+                    {status === "submitting" ? "Sending..." : "Request Callback"}
+                  </button>
+                </form>
+              )}
               <p className="text-sm font-medium text-gray-500 mt-6">
                 Or call directly: <a href={`tel:+91${site.phone}`} className="text-gray-900 hover:text-blue-600">{site.phoneDisplay}</a> | <a href={`tel:+91${site.phoneAlt}`} className="text-gray-900 hover:text-blue-600">+91 {site.phoneAlt}</a>
               </p>
