@@ -38,14 +38,155 @@ export default function Header() {
       {/* Middle Bar & Nav Combined for smaller size on Mobile, separate on Desktop */}
       <div className="bg-white/95 backdrop-blur-md relative z-[60]">
         <div className="max-w-7xl mx-auto px-4 md:px-6 py-3 flex justify-between items-center">
-          {/* Logo */}
-          <Link href="/" onClick={() => setIsOpen(false)} className="flex items-center gap-2 shrink-0">
-            <div className="w-8 h-8 md:w-10 md:h-10 bg-[#F87171] text-black font-bold rounded-full flex items-center justify-center text-xl md:text-2xl font-serif">
-              d
-            </div>
-            <div>
-              <div className="text-xl md:text-2xl font-bold tracking-widest leading-none text-black">DHOLERA</div>
-              <div className="text-[10px] md:text-xs tracking-widest font-semibold text-gray-500 uppercase leading-tight mt-0.5">SMART CITY</div>
+          {/* Animated Logo */}
+          <Link href="/" onClick={() => setIsOpen(false)} className="flex items-center gap-2.5 shrink-0 group">
+            {/* Animated Smart City Icon */}
+            <motion.div 
+              className="relative w-10 h-10 md:w-12 md:h-12 flex items-center justify-center"
+              whileHover={{ scale: 1.08 }}
+              transition={{ type: "spring", stiffness: 400, damping: 15 }}
+            >
+              <svg viewBox="0 0 48 48" className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                {/* Background gradient shape */}
+                <defs>
+                  <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#1e3a5f" />
+                    <stop offset="50%" stopColor="#0d2137" />
+                    <stop offset="100%" stopColor="#0a1628" />
+                  </linearGradient>
+                  <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stopColor="#FACC15" />
+                    <stop offset="50%" stopColor="#FDE68A" />
+                    <stop offset="100%" stopColor="#FACC15" />
+                  </linearGradient>
+                  <linearGradient id="skyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stopColor="#FACC15" stopOpacity="0.6" />
+                    <stop offset="100%" stopColor="#FACC15" stopOpacity="0" />
+                  </linearGradient>
+                  <filter id="glow">
+                    <feGaussianBlur stdDeviation="1" result="blur" />
+                    <feMerge>
+                      <feMergeNode in="blur" />
+                      <feMergeNode in="SourceGraphic" />
+                    </feMerge>
+                  </filter>
+                </defs>
+
+                {/* Hexagonal background */}
+                <motion.path 
+                  d="M24 2 L44 14 L44 34 L24 46 L4 34 L4 14 Z"
+                  fill="url(#logoGrad)"
+                  stroke="url(#goldGrad)"
+                  strokeWidth="1.5"
+                  initial={{ pathLength: 0, opacity: 0 }}
+                  animate={{ pathLength: 1, opacity: 1 }}
+                  transition={{ duration: 1.2, ease: "easeInOut" }}
+                />
+                
+                {/* City skyline - buildings */}
+                <motion.g filter="url(#glow)">
+                  {/* Tall center tower */}
+                  <motion.rect x="21" y="14" width="6" height="20" rx="1" fill="url(#goldGrad)"
+                    initial={{ scaleY: 0, originY: "100%" }} 
+                    animate={{ scaleY: 1 }} 
+                    transition={{ delay: 0.6, duration: 0.5, ease: "easeOut" }}
+                    style={{ transformOrigin: "50% 100%", transformBox: "fill-box" }}
+                  />
+                  {/* Tower antenna */}
+                  <motion.line x1="24" y1="10" x2="24" y2="14" stroke="#FACC15" strokeWidth="1.5" strokeLinecap="round"
+                    initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ delay: 1.1, duration: 0.3 }}
+                  />
+                  {/* Antenna signal arcs */}
+                  <motion.path d="M20 12 Q24 8 28 12" fill="none" stroke="#FACC15" strokeWidth="0.8" opacity="0.6"
+                    initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ delay: 1.4, duration: 0.4 }}
+                  />
+                  <motion.path d="M18 13 Q24 7 30 13" fill="none" stroke="#FACC15" strokeWidth="0.6" opacity="0.3"
+                    initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ delay: 1.6, duration: 0.4 }}
+                  />
+
+                  {/* Left building 1 */}
+                  <motion.rect x="10" y="22" width="5" height="12" rx="0.5" fill="#FACC15" opacity="0.85"
+                    initial={{ scaleY: 0 }} animate={{ scaleY: 1 }} transition={{ delay: 0.8, duration: 0.4, ease: "easeOut" }}
+                    style={{ transformOrigin: "50% 100%", transformBox: "fill-box" }}
+                  />
+                  {/* Left building 2 */}
+                  <motion.rect x="16" y="19" width="4" height="15" rx="0.5" fill="#FACC15" opacity="0.7"
+                    initial={{ scaleY: 0 }} animate={{ scaleY: 1 }} transition={{ delay: 0.7, duration: 0.45, ease: "easeOut" }}
+                    style={{ transformOrigin: "50% 100%", transformBox: "fill-box" }}
+                  />
+                  {/* Right building 1 */}
+                  <motion.rect x="28" y="20" width="4" height="14" rx="0.5" fill="#FACC15" opacity="0.7"
+                    initial={{ scaleY: 0 }} animate={{ scaleY: 1 }} transition={{ delay: 0.75, duration: 0.45, ease: "easeOut" }}
+                    style={{ transformOrigin: "50% 100%", transformBox: "fill-box" }}
+                  />
+                  {/* Right building 2 */}
+                  <motion.rect x="33" y="24" width="5" height="10" rx="0.5" fill="#FACC15" opacity="0.85"
+                    initial={{ scaleY: 0 }} animate={{ scaleY: 1 }} transition={{ delay: 0.85, duration: 0.4, ease: "easeOut" }}
+                    style={{ transformOrigin: "50% 100%", transformBox: "fill-box" }}
+                  />
+                </motion.g>
+
+                {/* Ground line */}
+                <motion.line x1="8" y1="34" x2="40" y2="34" stroke="#FACC15" strokeWidth="1" strokeLinecap="round"
+                  initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ delay: 0.5, duration: 0.6 }}
+                />
+
+                {/* Glowing dots on buildings (windows) */}
+                <motion.g initial={{ opacity: 0 }} animate={{ opacity: [0, 1, 0.6, 1] }} transition={{ delay: 1.3, duration: 1.5, repeat: Infinity, repeatType: "reverse" }}>
+                  <circle cx="12" cy="26" r="0.6" fill="white" opacity="0.9" />
+                  <circle cx="12" cy="29" r="0.6" fill="white" opacity="0.7" />
+                  <circle cx="23" cy="20" r="0.6" fill="white" opacity="0.9" />
+                  <circle cx="25" cy="23" r="0.6" fill="white" opacity="0.7" />
+                  <circle cx="23" cy="26" r="0.6" fill="white" opacity="0.8" />
+                  <circle cx="25" cy="29" r="0.6" fill="white" opacity="0.6" />
+                  <circle cx="30" cy="24" r="0.6" fill="white" opacity="0.8" />
+                  <circle cx="30" cy="27" r="0.6" fill="white" opacity="0.7" />
+                  <circle cx="35" cy="28" r="0.6" fill="white" opacity="0.9" />
+                  <circle cx="35" cy="31" r="0.6" fill="white" opacity="0.6" />
+                </motion.g>
+
+                {/* Orbiting particle */}
+                <motion.circle cx="24" cy="4" r="1.2" fill="#FACC15"
+                  animate={{ 
+                    cx: [24, 42, 24, 6, 24],
+                    cy: [4, 24, 44, 24, 4],
+                    opacity: [0.8, 0.4, 0.8, 0.4, 0.8],
+                    r: [1.2, 0.8, 1.2, 0.8, 1.2]
+                  }}
+                  transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+                />
+              </svg>
+            </motion.div>
+
+            {/* Animated Text */}
+            <div className="overflow-hidden">
+              <motion.div 
+                className="text-xl md:text-2xl font-extrabold tracking-[0.2em] leading-none text-gray-900"
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.3, duration: 0.5 }}
+              >
+                <span className="relative">
+                  DHOLERA
+                  <motion.span 
+                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/60 to-transparent"
+                    animate={{ x: ["-100%", "200%"] }}
+                    transition={{ delay: 2, duration: 1.5, repeat: Infinity, repeatDelay: 5 }}
+                  />
+                </span>
+              </motion.div>
+              <motion.div 
+                className="text-[9px] md:text-[11px] tracking-[0.35em] font-bold uppercase leading-tight mt-0.5 bg-gradient-to-r from-gray-500 via-[#FACC15] to-gray-500 bg-clip-text text-transparent bg-[length:200%_auto]"
+                initial={{ y: 10, opacity: 0 }}
+                animate={{ y: 0, opacity: 1, backgroundPosition: ["0% center", "200% center"] }}
+                transition={{ 
+                  y: { delay: 0.5, duration: 0.4 },
+                  opacity: { delay: 0.5, duration: 0.4 },
+                  backgroundPosition: { delay: 2.5, duration: 3, repeat: Infinity, repeatDelay: 4 }
+                }}
+              >
+                SMART CITY
+              </motion.div>
             </div>
           </Link>
 
