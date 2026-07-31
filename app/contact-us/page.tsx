@@ -3,6 +3,7 @@ import { useState } from "react";
 import { site } from "@/lib/data";
 import { Mail, MapPin, Phone } from "lucide-react";
 
+export default function ContactUs() {
   const [status, setStatus] = useState("");
   
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
