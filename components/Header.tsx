@@ -222,32 +222,58 @@ export default function Header() {
               </svg>
             </motion.div>
 
-            {/* ✈️ Big Flying Airplane — flies over the entire logo area */}
+            {/* ✈️ Flying Airplane — proper jet silhouette, slow & elegant */}
             <motion.svg
-              viewBox="0 0 40 20"
-              className="absolute z-20 w-10 h-5 md:w-14 md:h-7 pointer-events-none"
-              style={{ top: '15%' }}
+              viewBox="0 0 80 30"
+              className="absolute z-20 w-12 h-[18px] md:w-16 md:h-6 pointer-events-none"
+              initial={{ left: '-15%', top: '65%' }}
               animate={{
-                left: ['-20%', '120%'],
-                top: ['70%', '5%'],
+                left: ['-15%', '115%'],
+                top: ['65%', '10%'],
               }}
-              transition={{ duration: 3, repeat: Infinity, repeatDelay: 5, ease: [0.25, 0.1, 0.25, 1] }}
+              transition={{ duration: 8, repeat: Infinity, repeatDelay: 4, ease: "linear" }}
             >
-              {/* Contrail / vapor trail */}
-              <line x1="-15" y1="11" x2="8" y2="10" stroke="#FACC15" strokeWidth="0.6" opacity="0.25" />
-              <line x1="-10" y1="12" x2="8" y2="10.5" stroke="#d4a017" strokeWidth="0.4" opacity="0.15" />
-              {/* Fuselage */}
-              <path d="M18 10 L8 7.5 L4 10 L8 12 Z" fill="#1a1a2e" stroke="#FACC15" strokeWidth="0.5" />
-              {/* Top wing */}
-              <path d="M12 9.5 L8 3 L6.5 3.5 L9 10 Z" fill="#FACC15" opacity="0.85" />
-              {/* Bottom wing */}
-              <path d="M12 10.5 L8 17 L6.5 16.5 L9 10 Z" fill="#d4a017" opacity="0.7" />
-              {/* Tail fin */}
-              <path d="M5.5 10 L3 6.5 L2 7 L4 10 Z" fill="#FACC15" opacity="0.6" />
-              {/* Cockpit window */}
-              <circle cx="15" cy="10" r="1" fill="#FDE68A" opacity="0.9" />
-              {/* Engine glow */}
-              <circle cx="3" cy="10" r="1.5" fill="#FACC15" opacity="0.3" />
+              {/* Vapor trail */}
+              <line x1="-20" y1="16" x2="18" y2="15" stroke="#FACC15" strokeWidth="0.5" opacity="0.2" />
+              <line x1="-12" y1="17" x2="18" y2="15.5" stroke="#d4a017" strokeWidth="0.3" opacity="0.12" />
+              
+              {/* === Realistic Airplane Side View === */}
+              {/* Main fuselage — long sleek body */}
+              <path d="M60 15 Q65 14 68 15 Q65 16 60 15" fill="#FACC15" opacity="0.9" />
+              <path d="M20 14.5 L60 14 Q66 14.5 66 15.5 Q66 16.5 60 16 L20 15.5 Q16 15 20 14.5 Z" fill="#1a1a2e" stroke="#FACC15" strokeWidth="0.4" />
+              
+              {/* Cockpit / nose — pointed front */}
+              <path d="M60 14 Q68 14.8 68 15 Q68 15.2 60 16" fill="#0f2027" stroke="#FACC15" strokeWidth="0.3" />
+              {/* Cockpit windows */}
+              <ellipse cx="63" cy="14.7" rx="1.5" ry="0.5" fill="#FDE68A" opacity="0.8" />
+              
+              {/* Main wing — swept back */}
+              <path d="M38 14.5 L30 4 L26 4.5 L34 14.5 Z" fill="#FACC15" opacity="0.85" />
+              <path d="M38 15.5 L30 26 L26 25.5 L34 15.5 Z" fill="#d4a017" opacity="0.7" />
+              
+              {/* Tail vertical stabilizer */}
+              <path d="M22 14.5 L18 7 L16 7.5 L20 14.5 Z" fill="#FACC15" opacity="0.75" />
+              
+              {/* Tail horizontal stabilizer */}
+              <path d="M22 14.5 L19 11 L17 11.5 L20 14.5 Z" fill="#d4a017" opacity="0.5" />
+              <path d="M22 15.5 L19 19 L17 18.5 L20 15.5 Z" fill="#d4a017" opacity="0.5" />
+              
+              {/* Engine under wing */}
+              <ellipse cx="34" cy="17.5" rx="3" ry="1" fill="#0f2027" stroke="#FACC15" strokeWidth="0.3" />
+              
+              {/* Window row — small dots along fuselage */}
+              <g opacity="0.5">
+                <circle cx="30" cy="14.8" r="0.3" fill="#FDE68A" />
+                <circle cx="33" cy="14.7" r="0.3" fill="#FDE68A" />
+                <circle cx="36" cy="14.6" r="0.3" fill="#FDE68A" />
+                <circle cx="39" cy="14.5" r="0.3" fill="#FDE68A" />
+                <circle cx="42" cy="14.4" r="0.3" fill="#FDE68A" />
+                <circle cx="45" cy="14.4" r="0.3" fill="#FDE68A" />
+                <circle cx="48" cy="14.3" r="0.3" fill="#FDE68A" />
+                <circle cx="51" cy="14.3" r="0.3" fill="#FDE68A" />
+                <circle cx="54" cy="14.2" r="0.3" fill="#FDE68A" />
+                <circle cx="57" cy="14.2" r="0.3" fill="#FDE68A" />
+              </g>
             </motion.svg>
 
             {/* Animated Text */}
