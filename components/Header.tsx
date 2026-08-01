@@ -218,15 +218,41 @@ export default function Header() {
                   </motion.g>
                 </g>
 
-                {/* Orbiting golden particle — slow and elegant */}
-                <motion.circle r="1" fill="#FACC15" filter="url(#sunFilter)"
-                  animate={{ 
-                    cx: [28, 50, 28, 6, 28],
-                    cy: [2, 28, 54, 28, 2],
-                    opacity: [0.9, 0.3, 0.9, 0.3, 0.9],
+                {/* ✈️ Flying airplane — Dholera International Airport */}
+                <motion.g
+                  animate={{
+                    x: [-20, 56],
+                    y: [35, 5],
                   }}
-                  transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-                />
+                  transition={{ duration: 4, repeat: Infinity, repeatDelay: 6, ease: "easeInOut" }}
+                >
+                  {/* Vapor trail */}
+                  <motion.line x1="-12" y1="3" x2="0" y2="0" stroke="#FACC15" strokeWidth="0.4" opacity="0.3" />
+                  <motion.line x1="-8" y1="2.5" x2="0" y2="0" stroke="#FDE68A" strokeWidth="0.3" opacity="0.2" />
+                  {/* Airplane body */}
+                  <path d="M0 0 L-3 -1.2 L-5 0 L-3 0.8 Z" fill="#FDE68A" opacity="0.9" />
+                  {/* Wings */}
+                  <path d="M-2 -0.2 L-3.5 -2.5 L-4 -2.2 L-3 0 Z" fill="#FACC15" opacity="0.7" />
+                  <path d="M-2 0.2 L-3.5 2.5 L-4 2.2 L-3 0 Z" fill="#FACC15" opacity="0.7" />
+                  {/* Tail */}
+                  <path d="M-4.5 0 L-5.5 -1.5 L-5.8 -1.2 L-5 0 Z" fill="#d4a017" opacity="0.6" />
+                  {/* Engine glow */}
+                  <circle cx="-5.5" cy="0" r="0.6" fill="#FACC15" opacity="0.4" />
+                </motion.g>
+
+                {/* Second airplane — smaller, background, opposite direction */}
+                <motion.g
+                  animate={{
+                    x: [58, -10],
+                    y: [10, 30],
+                  }}
+                  transition={{ duration: 5, repeat: Infinity, repeatDelay: 8, ease: "easeInOut", delay: 5 }}
+                  opacity={0.35}
+                >
+                  <path d="M0 0 L2.5 -0.8 L4 0 L2.5 0.6 Z" fill="#FDE68A" />
+                  <path d="M1.5 -0.1 L2.8 -1.8 L3.2 -1.5 L2.5 0 Z" fill="#FACC15" />
+                  <path d="M1.5 0.1 L2.8 1.8 L3.2 1.5 L2.5 0 Z" fill="#FACC15" />
+                </motion.g>
               </svg>
             </motion.div>
 

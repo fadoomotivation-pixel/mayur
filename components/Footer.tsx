@@ -149,9 +149,6 @@ export default function Footer() {
           <div>
             Copyright © {new Date().getFullYear()} {site.name}. All Rights Reserved.
           </div>
-          <div>
-            Powered by Mirrikh Group
-          </div>
         </div>
       </div>
     </footer>
