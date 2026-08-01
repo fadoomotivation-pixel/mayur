@@ -10,7 +10,7 @@ export default function ContactUs() {
     e.preventDefault();
     setStatus("submitting");
     const formData = new FormData(e.currentTarget);
-    formData.append("access_key", "YOUR_WEB3FORMS_ACCESS_KEY"); // Replace with Web3Forms Access Key
+    formData.append("access_key", "6d5666cd-0375-4737-9a88-af583ff06544");
 
     try {
       const response = await fetch("https://api.web3forms.com/submit", {

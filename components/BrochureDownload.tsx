@@ -45,7 +45,7 @@ export default function BrochureDownload({
           Accept: "application/json",
         },
         body: JSON.stringify({
-          access_key: "YOUR_ACCESS_KEY_HERE",
+          access_key: "6d5666cd-0375-4737-9a88-af583ff06544",
           name: formData.name,
           phone: formData.phone,
           email: formData.email,
