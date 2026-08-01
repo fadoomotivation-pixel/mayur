@@ -1,8 +1,16 @@
 import { notFound } from "next/navigation";
 import { site, projects } from "@/lib/data";
-import { MapPin, Phone, Building, Home, Maximize, Tag, CheckCircle2, ChevronRight } from "lucide-react";
+import { MapPin, Phone, Building, Home, Maximize, Tag, CheckCircle2, ChevronRight, ShieldCheck, TreePine, Zap, Droplets, Route, Waves, Dumbbell, Lightbulb, Baby, Gamepad2, PartyPopper, CircleDot, Trophy, Footprints, ShoppingBag, Fence, Truck, Trees, IndianRupee, Ruler, LayoutGrid } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import BrochureDownload from "@/components/BrochureDownload";
+
+// Icon mapping for amenities
+const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
+  ShieldCheck, Home, TreePine, Zap, Droplets, Route, Waves, Dumbbell,
+  Lightbulb, Baby, Gamepad2, PartyPopper, CircleDot, Trophy, Footprints,
+  ShoppingBag, Fence, Truck, Trees, PipetteIcon: Droplets,
+};
 
 export default async function DynamicPage({ params }: { params: Promise<{ slug: string[] }> }) {
   const resolvedParams = await params;
@@ -22,68 +30,110 @@ export default async function DynamicPage({ params }: { params: Promise<{ slug: 
 
         <div className="max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 lg:grid-cols-4 gap-8 items-start">
           
-          <div className="lg:col-span-1 border border-gray-200 rounded-lg overflow-hidden bg-white shadow-sm order-2 lg:order-1">
-            <div className="divide-y divide-gray-100">
-              
-              <div className="flex items-start justify-between gap-3 p-4">
-                <div className="flex items-center gap-3 shrink-0">
-                  <Tag className="w-5 h-5 text-gray-700" />
-                  <span className="text-gray-500 font-medium text-sm">Builder:</span>
+          {/* Sidebar */}
+          <div className="lg:col-span-1 space-y-6 order-2 lg:order-1">
+            {/* Project Details Card */}
+            <div className="border border-gray-200 rounded-lg overflow-hidden bg-white shadow-sm">
+              <div className="divide-y divide-gray-100">
+                
+                <div className="flex items-start justify-between gap-3 p-4">
+                  <div className="flex items-center gap-3 shrink-0">
+                    <Tag className="w-5 h-5 text-gray-700" />
+                    <span className="text-gray-500 font-medium text-sm">Builder:</span>
+                  </div>
+                  <span className="text-[#0ea5e9] font-medium text-sm text-right">Mirrikh Infratech</span>
                 </div>
-                <span className="text-[#0ea5e9] font-medium text-sm text-right">Mirrikh Infratech</span>
-              </div>
-              
-              <div className="flex items-start justify-between gap-3 p-4">
-                <div className="flex items-center gap-3 shrink-0">
-                  <MapPin className="w-5 h-5 text-gray-700" />
-                  <span className="text-gray-500 font-medium text-sm">Location:</span>
+                
+                <div className="flex items-start justify-between gap-3 p-4">
+                  <div className="flex items-center gap-3 shrink-0">
+                    <MapPin className="w-5 h-5 text-gray-700" />
+                    <span className="text-gray-500 font-medium text-sm">Location:</span>
+                  </div>
+                  <span className="text-[#0ea5e9] font-medium text-sm text-right">{project.location.split(',')[0]}</span>
                 </div>
-                <span className="text-[#0ea5e9] font-medium text-sm text-right">{project.location.split(',')[0]}</span>
-              </div>
 
-              <div className="flex items-start justify-between gap-3 p-4">
-                <div className="flex items-center gap-3 shrink-0">
-                  <Phone className="w-5 h-5 text-gray-700" />
-                  <span className="text-gray-500 font-medium text-sm">Phone:</span>
+                <div className="flex items-start justify-between gap-3 p-4">
+                  <div className="flex items-center gap-3 shrink-0">
+                    <Phone className="w-5 h-5 text-gray-700" />
+                    <span className="text-gray-500 font-medium text-sm">Phone:</span>
+                  </div>
+                  <span className="text-[#0ea5e9] font-medium text-sm text-right">(+91) 98999 74590<br/>/ 70423 67340</span>
                 </div>
-                <span className="text-[#0ea5e9] font-medium text-sm text-right">(+91) 98999 74590<br/>/ 70423 67340</span>
+
+                <div className="flex items-start justify-between gap-3 p-4">
+                  <div className="flex items-center gap-3 shrink-0">
+                    <Building className="w-5 h-5 text-gray-700" />
+                    <span className="text-gray-500 font-medium text-sm">Status:</span>
+                  </div>
+                  <span className="text-gray-700 font-medium text-sm text-right">{project.status}</span>
+                </div>
+
+                <div className="flex items-start justify-between gap-3 p-4">
+                  <div className="flex items-center gap-3 shrink-0">
+                    <Home className="w-5 h-5 text-gray-700" />
+                    <span className="text-gray-500 font-medium text-sm">Type:</span>
+                  </div>
+                  <span className="text-gray-700 font-medium text-sm text-right">{project.type}</span>
+                </div>
+
+                <div className="flex items-start justify-between gap-3 p-4">
+                  <div className="flex items-center gap-3 shrink-0">
+                    <Maximize className="w-5 h-5 text-gray-700" />
+                    <span className="text-gray-500 font-medium text-sm">Min Size (Sq. Yard):</span>
+                  </div>
+                  <span className="text-gray-700 font-medium text-sm text-right">{project.minSize || '126'}</span>
+                </div>
+
+                {project.brochure && (
+                  <div className="p-4 bg-gray-50 border-t border-gray-100">
+                    <BrochureDownload brochureUrl={project.brochure} projectName={project.name} accentColor={project.accent} />
+                  </div>
+                )}
+
               </div>
+            </div>
 
-              <div className="flex items-start justify-between gap-3 p-4">
-                <div className="flex items-center gap-3 shrink-0">
-                  <Building className="w-5 h-5 text-gray-700" />
-                  <span className="text-gray-500 font-medium text-sm">Status:</span>
-                </div>
-                <span className="text-gray-700 font-medium text-sm text-right">{project.status}</span>
+            {/* Pricing & Plot Info Card */}
+            <div className="border border-gray-200 rounded-lg overflow-hidden bg-gradient-to-b from-gray-50 to-white shadow-sm">
+              <div className="p-4 border-b border-gray-200 bg-gray-900 text-white">
+                <h3 className="text-sm font-bold uppercase tracking-wider">Pricing & Plot Details</h3>
               </div>
-
-              <div className="flex items-start justify-between gap-3 p-4">
-                <div className="flex items-center gap-3 shrink-0">
-                  <Home className="w-5 h-5 text-gray-700" />
-                  <span className="text-gray-500 font-medium text-sm">Type:</span>
+              <div className="divide-y divide-gray-100">
+                <div className="flex items-center justify-between p-4">
+                  <div className="flex items-center gap-2 text-gray-500 text-sm">
+                    <IndianRupee className="w-4 h-4" />
+                    Starting Price
+                  </div>
+                  <span className="font-bold text-gray-900 text-sm">{project.startingPrice || 'On Request'}</span>
                 </div>
-                <span className="text-gray-700 font-medium text-sm text-right">{project.type}</span>
+                {project.plotRange && (
+                  <div className="flex items-center justify-between p-4">
+                    <div className="flex items-center gap-2 text-gray-500 text-sm">
+                      <Ruler className="w-4 h-4" />
+                      Plot Sizes
+                    </div>
+                    <span className="font-bold text-gray-900 text-sm">{project.plotRange}</span>
+                  </div>
+                )}
+                {project.totalPlots && (
+                  <div className="flex items-center justify-between p-4">
+                    <div className="flex items-center gap-2 text-gray-500 text-sm">
+                      <LayoutGrid className="w-4 h-4" />
+                      Total Plots
+                    </div>
+                    <span className="font-bold text-gray-900 text-sm">{project.totalPlots}</span>
+                  </div>
+                )}
+                <div className="p-4">
+                  <Link href="/contact-us" className="w-full flex items-center justify-center gap-2 py-3 px-4 bg-gray-900 hover:bg-gray-800 text-white font-bold rounded-md transition-colors text-sm">
+                    Request Detailed Pricing
+                  </Link>
+                </div>
               </div>
-
-              <div className="flex items-start justify-between gap-3 p-4">
-                <div className="flex items-center gap-3 shrink-0">
-                  <Maximize className="w-5 h-5 text-gray-700" />
-                  <span className="text-gray-500 font-medium text-sm">Min Size (Sq. Yard):</span>
-                </div>
-                <span className="text-gray-700 font-medium text-sm text-right">{project.minSize || '126'}</span>
-              </div>
-
-              {project.brochure && (
-                <div className="p-4 bg-gray-50 border-t border-gray-100">
-                  <a href={project.brochure} target="_blank" rel="noopener noreferrer" className="w-full flex items-center justify-center gap-2 py-3 px-4 bg-[#FACC15] hover:bg-[#eab308] text-gray-900 font-bold rounded-md transition-colors text-sm shadow-sm">
-                    Download Brochure
-                  </a>
-                </div>
-              )}
-
             </div>
           </div>
 
+          {/* Main Content */}
           <div className="lg:col-span-3 space-y-10 order-1 lg:order-2">
             <div className="relative w-full aspect-[16/9] md:aspect-[2.5/1] overflow-hidden rounded-md">
               <Image 
@@ -113,6 +163,33 @@ export default async function DynamicPage({ params }: { params: Promise<{ slug: 
                 ))}
               </div>
             </div>
+
+            {/* Amenities & Facilities Section */}
+            {project.amenities && project.amenities.length > 0 && (
+              <div>
+                <h3 className="text-2xl font-bold mb-2 text-[#333333]">Amenities & Facilities</h3>
+                <p className="text-gray-500 text-sm mb-6">Compare the facilities offered in this project</p>
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+                  {project.amenities.map((amenity: { icon: string; label: string }, idx: number) => {
+                    const IconComponent = iconMap[amenity.icon] || CheckCircle2;
+                    return (
+                      <div 
+                        key={idx} 
+                        className="flex flex-col items-center gap-3 p-4 rounded-xl border border-gray-100 bg-gray-50/50 hover:bg-white hover:shadow-md hover:border-gray-200 transition-all duration-300 text-center group"
+                      >
+                        <div 
+                          className="w-12 h-12 rounded-full flex items-center justify-center transition-colors duration-300"
+                          style={{ backgroundColor: `${project.accent}15`, color: project.accent }}
+                        >
+                          <IconComponent className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
+                        </div>
+                        <span className="text-gray-700 text-xs font-medium leading-tight">{amenity.label}</span>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
 
             {project.map && (
               <div>
