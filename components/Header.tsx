@@ -39,7 +39,7 @@ export default function Header() {
       <div className="bg-white/95 backdrop-blur-md relative z-[60]">
         <div className="max-w-7xl mx-auto px-4 md:px-6 py-3 flex justify-between items-center">
           {/* Animated Logo */}
-          <Link href="/" onClick={() => setIsOpen(false)} className="flex items-center gap-2.5 shrink-0 group">
+          <Link href="/" onClick={() => setIsOpen(false)} className="flex items-center gap-2.5 shrink-0 group relative overflow-hidden">
             {/* Premium Animated Smart City Icon */}
             <motion.div 
               className="relative w-11 h-11 md:w-[52px] md:h-[52px] flex items-center justify-center"
@@ -218,43 +218,37 @@ export default function Header() {
                   </motion.g>
                 </g>
 
-                {/* ✈️ Flying airplane — Dholera International Airport */}
-                <motion.g
-                  animate={{
-                    x: [-20, 56],
-                    y: [35, 5],
-                  }}
-                  transition={{ duration: 4, repeat: Infinity, repeatDelay: 6, ease: "easeInOut" }}
-                >
-                  {/* Vapor trail */}
-                  <motion.line x1="-12" y1="3" x2="0" y2="0" stroke="#FACC15" strokeWidth="0.4" opacity="0.3" />
-                  <motion.line x1="-8" y1="2.5" x2="0" y2="0" stroke="#FDE68A" strokeWidth="0.3" opacity="0.2" />
-                  {/* Airplane body */}
-                  <path d="M0 0 L-3 -1.2 L-5 0 L-3 0.8 Z" fill="#FDE68A" opacity="0.9" />
-                  {/* Wings */}
-                  <path d="M-2 -0.2 L-3.5 -2.5 L-4 -2.2 L-3 0 Z" fill="#FACC15" opacity="0.7" />
-                  <path d="M-2 0.2 L-3.5 2.5 L-4 2.2 L-3 0 Z" fill="#FACC15" opacity="0.7" />
-                  {/* Tail */}
-                  <path d="M-4.5 0 L-5.5 -1.5 L-5.8 -1.2 L-5 0 Z" fill="#d4a017" opacity="0.6" />
-                  {/* Engine glow */}
-                  <circle cx="-5.5" cy="0" r="0.6" fill="#FACC15" opacity="0.4" />
-                </motion.g>
 
-                {/* Second airplane — smaller, background, opposite direction */}
-                <motion.g
-                  animate={{
-                    x: [58, -10],
-                    y: [10, 30],
-                  }}
-                  transition={{ duration: 5, repeat: Infinity, repeatDelay: 8, ease: "easeInOut", delay: 5 }}
-                  opacity={0.35}
-                >
-                  <path d="M0 0 L2.5 -0.8 L4 0 L2.5 0.6 Z" fill="#FDE68A" />
-                  <path d="M1.5 -0.1 L2.8 -1.8 L3.2 -1.5 L2.5 0 Z" fill="#FACC15" />
-                  <path d="M1.5 0.1 L2.8 1.8 L3.2 1.5 L2.5 0 Z" fill="#FACC15" />
-                </motion.g>
               </svg>
             </motion.div>
+
+            {/* ✈️ Big Flying Airplane — flies over the entire logo area */}
+            <motion.svg
+              viewBox="0 0 40 20"
+              className="absolute z-20 w-10 h-5 md:w-14 md:h-7 pointer-events-none"
+              style={{ top: '15%' }}
+              animate={{
+                left: ['-20%', '120%'],
+                top: ['70%', '5%'],
+              }}
+              transition={{ duration: 3, repeat: Infinity, repeatDelay: 5, ease: [0.25, 0.1, 0.25, 1] }}
+            >
+              {/* Contrail / vapor trail */}
+              <line x1="-15" y1="11" x2="8" y2="10" stroke="#FACC15" strokeWidth="0.6" opacity="0.25" />
+              <line x1="-10" y1="12" x2="8" y2="10.5" stroke="#d4a017" strokeWidth="0.4" opacity="0.15" />
+              {/* Fuselage */}
+              <path d="M18 10 L8 7.5 L4 10 L8 12 Z" fill="#1a1a2e" stroke="#FACC15" strokeWidth="0.5" />
+              {/* Top wing */}
+              <path d="M12 9.5 L8 3 L6.5 3.5 L9 10 Z" fill="#FACC15" opacity="0.85" />
+              {/* Bottom wing */}
+              <path d="M12 10.5 L8 17 L6.5 16.5 L9 10 Z" fill="#d4a017" opacity="0.7" />
+              {/* Tail fin */}
+              <path d="M5.5 10 L3 6.5 L2 7 L4 10 Z" fill="#FACC15" opacity="0.6" />
+              {/* Cockpit window */}
+              <circle cx="15" cy="10" r="1" fill="#FDE68A" opacity="0.9" />
+              {/* Engine glow */}
+              <circle cx="3" cy="10" r="1.5" fill="#FACC15" opacity="0.3" />
+            </motion.svg>
 
             {/* Animated Text */}
             <div className="overflow-hidden">
